@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign page</title>
+    <link rel="stylesheet" href="./index2.css">
+</head>
+<body>
+    <section class="sign">
+        <a href="./index0.html"><h2>sign here!</h2></a>
+        <div class="signup">
+            <form action="" id="myForm">
+                <input type="text" name="fullname" id="fname" required placeholder="Your full name">
+                <br><br>
+                 <input type="text" name="Email" id="Email" required placeholder="Your Email...">
+                <br>
+                <br>
+                <input type="password" name="password" id="password" required placeholder="Your password">
+                <div class="button">
+                    <a href="./index1.html"><button type="button">login</button></a>
+                    <a href=""><button type="submit">sign</button></a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        const myForm = document.getElementById("myForm");
+        myForm.addEventListener('submit',(e)=>{
+
+        e.preventDefault();
+
+        const fname = document.getElementById("fname").value;
+        const Email = document.getElementById("Email").value;
+        const password = document.getElementById("password").value;
+
+        {
+            console.log("my full name:" ,fname);
+            console.log("my Email:", Email);
+            console.log("my password:", password);
+        }
+        if(!Email == !password)
+        {
+        setTimeout(()=>{
+            alert("     Now you are join us! ");
+            return true;
+        },3000);
+    }
+        });
+
+        Notification.requestPermission().then(Permissions =>{
+            if(Permissions ==="granted"){
+                setTimeout(()=>{
+                    new Notification("Evariste Bapfekurera",{body: "follow me on linkedin,twitter,tiktak and HTEVA website!"});
+                },5000);
+            }
+        });
+
+        myForm.reset();
+    </script>
+</body>
+</html>

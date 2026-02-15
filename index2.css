@@ -1,0 +1,160 @@
+body{
+ background-color: rgb(247, 238, 222);
+ margin: 0;
+ font-family: Arial, sans-serif;
+ animation-duration: 10s;
+ animation-delay: 5s;
+ animation-name: evari;
+}
+@keyframes evari{
+    from{
+       transform: translateZ(0px);
+        background-color: #000;
+        opacity: 0;
+    }
+    to{
+        transform: translateZ(20px);
+        opacity: 1;
+        background-color: #0c1e50;
+    }
+}
+@media(max-width:600px){
+    body{
+        position: relative;
+        background-color: rgb(15, 13, 44);
+    }
+}
+
+.sign{
+    position: relative;
+    width: 30vw;
+    height: 60vh;
+    top: 150px;
+    justify-self: center;
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    animation-duration: 5s;
+    animation-name: eva;
+    animation-delay: 3s;
+    animation-direction: alternate;
+    }
+
+    @keyframes eva{
+        from{
+            transform: translateZ(0px);
+            opacity: 1;
+            color: black;
+            background-color: yellowgreen;
+        }
+        to{
+            transform: translateZ(60px);
+            opacity: 0;
+            background-color: cyan;
+        }
+    }
+
+@media(max-width:600px){
+    .sign{
+        position: relative;
+        width: 90vw;
+        border-radius: 5px;
+        height:60vh ;
+        background: linear-gradient(to bottom,skyblue,rgb(6, 61, 212));
+        animation-timing-function: 300ms;
+        animation-duration: 5s;
+        animation-name: eva;
+        animation-delay: 2s;
+        animation-direction: alternate;
+    }
+    @keyframes eva{
+        from{
+            transform: translateZ(0px);
+            opacity: 0;
+        }
+        to{
+            transform: translateZ(60px);
+            opacity: 1;
+        }
+    }
+}
+@media(max-width:600px){
+    .sign a{
+        position: relative;
+        text-decoration: none;
+    }
+}
+.sign h2{
+    position: relative;
+    font-size: 20px;
+    font-weight: 900;
+    font-style: italic;
+    top: 50px;
+    text-transform: capitalize;
+    overflow-wrap: break-word;
+    color: blue;
+}
+.sign a{
+    position: relative;
+    text-decoration: none;
+}
+@media(max-width:600px){
+    .sign h2{
+        position: relative;
+        color: rgb(1, 43, 1);
+
+    }
+}
+.signup{
+    position: relative;
+    top: 70px;
+    color: white;
+}
+.signup input{
+    position: relative;
+    width: 25vw;
+    height: 5vh;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid rgb(253, 252, 252);
+    background-color: rgb(20, 20, 20);
+}
+@media(max-width:600px){
+    .signup input{
+        position: relative;
+        border: 1px solid rgb(3, 3, 3);
+        cursor: pointer;
+        height: 5vh;
+        width: 70vw;
+        background-color: rgb(70, 67, 67);
+        color: #ffffff;
+    }
+}
+
+.button{
+    position: relative;
+    top: 50px;
+    text-align: center;
+}
+.button button{
+    position: relative;
+    width: 10vw;
+    height: 6vh;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 82);
+    color: white;
+    font: 20px bold;
+    cursor: pointer;
+    border: none;
+}
+@media(max-width:600px){
+    .button button{
+        position: relative;
+        width: 20vw;
+        height: 6vh;
+        background-color: rgb(1, 85, 163);
+        color: #fffdfd;
+        border-radius: 10px;
+        border: none;
+    }
+}

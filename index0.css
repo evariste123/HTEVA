@@ -1,0 +1,375 @@
+body{
+    position: relative;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #383737;
+    background-color: #0a0a0a;
+    text-align: center;
+}
+body img{
+    position: relative;
+    width: 10vw;
+    height: 7vh;
+    text-align: center;
+    margin-left: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    animation-duration: 10s;
+    animation-name: eva;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: 300ms;
+}
+@keyframes eva{
+    from{
+        transform: translateX(0px);
+        opacity: 1;
+        border: 2px solid cyan;
+        border-radius: 5px;
+    }
+    to{
+        transform: translateX(360px);
+        opacity: 0;
+        border: 2px solid purple;
+        border-radius: 5px;
+    }
+}
+.card{
+    position: relative;
+    bottom: 0px;
+    overflow-wrap: break-word;
+    width: auto;
+    padding: 10px;
+    justify-items: end;
+    /* background:linear-gradient(to right,skyblue,cyan,white) ; */
+    background: #212c3b; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.logo{
+    position: relative;
+    font: 20px bold;
+    justify-self: left;
+    color: limegreen;
+    width: 10vw;
+    text-align: center;
+    border-radius: 10px;
+    top: 10px;
+    height: 6vh;
+    background-color: rgb(21, 107, 160);
+}
+.logo:hover{
+    position: relative;
+    background-color: #abffab;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.logo b{
+    position: relative;
+    text-align: center;
+    top: 10px;
+}
+.logo a{
+    position: relative;
+    text-decoration: none;
+}
+@media(max-width:600px){
+    .logo b{
+        position: relative;
+        font-size: 20px;
+        top: 30px;
+        text-align: center;
+        color: white;
+    }
+}
+@media(max-width:600px){
+    .logo{
+        position: relative;
+        width: 30vw;
+        height: 10vh;
+        border-radius: 20px;
+        background-color: rgb(2, 31, 2);
+        margin-bottom: 50px;
+        justify-self: center;
+    }
+}
+.menu{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.menu a{
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: rgb(253, 252, 253);
+    bottom: 20px;
+}
+.menu a:hover{
+    position: relative;
+    transition: all ease 0.3s;
+    color: indianred;
+    transform: translateX(2px);
+    cursor: pointer;
+}
+#About.container{
+    position: relative;
+    width: auto;
+    bottom: 20px;
+    height: 90vh;
+    background: #172a45; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.hero-text{
+    position: relative;
+    width: 80vw;
+    justify-self: center;
+    color: white;
+    top: 50px;
+    border-radius: 20px;
+    text-align: center;
+    height: 40vh;
+    flex-wrap: wrap;
+    background-color: #112240;;
+}
+@media(max-width:600px){
+    .hero-text{
+        position: relative;
+        width: 80vw;
+        text-align: center;
+        height: 60vh;
+        background: linear-gradient(to bottom,lightblue,skyblue,darkcyan);
+        color: black;
+        border-radius: 20px;
+    }
+}
+.hero-text h1{
+    position: relative;
+    color: rgb(3, 203, 253);
+    top: 50px;
+    overflow-wrap: break-word;
+}
+@media(max-width:600px){
+    .hero-text h1{
+        position: relative;
+        color: purple;
+        top: 10px;
+    }
+}
+.hero-text p{
+    position: relative;
+    top: 50px;
+    font: 20px bold;
+    font-weight: 500;
+    font-style: italic;
+}
+@media(max-width:600px){
+    .hero-text p{
+        position: relative;
+        color: rgb(48, 47, 47);
+        top: 10px;
+        font: bold;
+        font-weight: 500;
+        
+    }
+}
+.hero-btns{
+    position: relative;
+    justify-self: center;
+    top: 100px;
+    flex-wrap: wrap;
+}
+.hero-btns button{
+    position: relative;
+    width: auto;
+    height: 7vh;
+    background-color: #011d1d;
+    color: white;
+    font: 20px bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+.hero-btns button:hover{
+    position: relative;
+    transition: all ease-in 0.3s;
+    color: blue;
+    background-color: #fcf9f9;
+    cursor: pointer;
+}
+@media(max-width:600px){
+    .hero-btns button{
+        position: relative;
+        width: 40vw;
+        height: 8vh;
+        background-color: #0a0a0a;
+        color: #fcf9f9;
+        border: 1px solid purple;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+}
+.footer{
+    position: relative;
+    width: 100vw;
+    height: auto;
+    justify-self: center;
+    animation-iteration-count: 1;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-direction: alternate;
+    animation-name: footer;
+}
+@keyframes footer{
+    from{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(5px);
+        opacity: 0;
+    }
+}
+@media(max-width:600px){
+    .footer{
+        height: 50vh;
+        width: 100vw;
+        justify-self: center;
+    }
+}
+.card1{
+    position: relative;
+    width: 20vw;
+    height: auto;
+    justify-self: left;
+    text-align: center;
+    margin-left: 20px;
+    background-color: transparent;
+}
+.card2{
+    display: grid;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.card2 a{
+    position: relative;
+    text-decoration: none;
+    color: rgb(78, 77, 77);
+    cursor: pointer;
+    font-weight: 500;
+    z-index: 1;
+    font-family: Arial, sans-serif;
+    text-transform: capitalize;
+}
+.card2 a:hover{
+    position: relative;
+    color: white;
+    transition: all ease-in 0.3s;
+    cursor: pointer;
+    transform: translateX(20px);
+    opacity: 1;
+    padding-bottom: 0px;
+}
+.card3{
+    position: absolute;
+    justify-self: center;
+    bottom: 0px;
+    width: 20vw;
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+}
+.card4{
+    display: grid;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.card4 a{
+    position: relative;
+    color: rgb(73, 72, 72);
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.card4 a:hover{
+    position: relative;
+    color: white;
+    cursor: pointer;
+    transform: translateX(20px);
+    opacity: 1;
+    transition: all ease-in 0.3s;
+}
+.card5{
+    position: absolute;
+    justify-self: right;
+    margin-right: 20px;
+    width: 20vw;
+    height: auto;
+    background-color: transparent;
+    cursor: pointer;
+    bottom: 50px;
+}
+.card6{
+    display: grid;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.card6 a{
+    position: relative;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: rgb(73, 72, 72);
+}
+.card6 a:hover{
+    position: relative;
+    color: white;
+    transition: all ease-in 0.3s;
+    cursor: pointer;
+    transform: translateX(20px);
+    opacity: 1;
+}
+.helop{
+    position: relative;
+    top: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+}
+@media(max-width:600px){
+    .card3{
+        position: relative;
+        top: 50px;
+        color: white;
+        justify-self: left;
+        margin-left: 20px;
+    }
+}
+
+@media(max-width:600px){
+    .card1{
+        position: relative;
+        color: white;
+    }
+}
+@media(max-width:600px){
+    .card5{
+        position: relative;
+        justify-self: left;
+        top: 100px;
+        margin-left: 20px;
+        color: white;
+    }
+}
+@media(max-width:600px){
+    .helop{
+        position: relative;
+        top: 130px;
+        overflow-wrap: break-word;
+    }
+}

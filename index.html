@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my Evariste 2026</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <marquee behavior="left" direction="slowly">Welcome to travelling to every country you wanna!...</marquee>
+    <section class="section" id="home">
+       <h1>welcome to HTE(hope Tree Eva)website</h1>
+       <nav class="card">
+         <div class="logo"><b>HTEVA</b></div>
+        <div class="menu">
+            <a href="#home">home</a>
+            <a href="./index0.html">about</a>
+            <a href="./index3.html">service</a>
+            <a href="./index4.html">product</a>
+            <a href="#blog">blog</a>
+             <a href="#footer">contact</a>
+            <a href="./index1.html"><button type="button">login</button></a>
+            <a href="./index2.html"><button type="button">join</button></a>
+            <div class="search">
+                <form action="" id="myform">
+                    <input type="text" name="search" id="search" placeholder="search..."><button type="submit">search</button>
+                </form>
+            </div>
+            <a href=""><div class="button" id="involved"><button type="button">Get Involve</button></div></a>
+        </div>
+       </nav>
+       <div class="card1">
+        <a href=""><button type="button">Explorer your business</button></a>
+       </div>
+       <section class="card2">
+        <div class="card3" id="homeService">
+            <a href=""><h3>^Home</h3></a>
+        </div>
+        <div class="card5" id="helpService">
+           <a href=""> <h3>?help</h3></a>
+        </div>
+        <div class="card4" id="RoamingService">
+           <a href=""> <h3>@Roaming</h3></a>
+        </div>
+       </section>
+       <div class="para"><h2>my contact & get me on google map:</h2></div>
+</section>
+
+<section class="footer" id="footer">
+<div class="links">
+    <h4>quick-navigation</h4>
+    <div class="link">
+        <a href="#home">home</a>
+            <a href="./index0.html">about</a>
+            <a href="./index3.html">service</a>
+            <a href="./index4.html">product</a>
+            <a href="#blog">blog</a>
+             <a href="#f">contact</a>
+    </div>
+  
+</div>
+<div class="social">
+    <h4>social-links</h4>
+    <div class="social-links">
+        <a href="https://www.youtube.com/@evaristebapfekurera5995"><img src="./image/youtube.png" alt="you tube"></a>
+         <a href="https://www.facebook.com/evariste.arrogent.ever"><img src="./image/facebook.png" alt="facebook"></a>
+          <a href="https://www.linkedin.com/in/evariste-bapfekurera-a3700b2b0/"><img src="./image/linkedin.png" alt="linkedin"></a>
+           <a href="https://x.com/EBapfekure3"><img src="./image/twitter.png" alt="twitter"></a>
+            <a href="https://www.instagram.com/evariste_truly_ever/"><img src="./image/instagram.jpeg" alt="instagraam"></a>
+    </div>
+</div>
+  <div class="hello"><strong>Powered by HTE <br>(Hope Tree Eva)</strong>
+        <div class="form"><h5>stay update to get our resources</h5>
+           <form action="" id="form">
+             <input type="text" name="Email" id="Email" required placeholder="Email:"><button type="submit">Subscribe</button>
+           </form>
+        </div>
+    </div>
+<div class="google">
+        <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353159043!3d-37.81627927975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f0c3f5%3A0xb6899234a5a6e7f8!2sSome%20Place!5e0!3m2!1sen!2sus!4v1700000000000"
+  width="100%"
+  height="450"
+  style="border:none;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade;">
+</iframe>
+</div>
+</section>
+<script>
+const form = document.getElementById("form");
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const emailValue = document.getElementById("Email").value;
+    
+    
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    console.log("my Email:", emailValue);
+
+    
+    if (emailValue === '') {
+        alert("Please enter an email address.");
+        return false;
+    } 
+   
+    else if (!emailPattern.test(emailValue)) {
+        alert("Email must be contains: yourname@gmail.com");
+        return false;
+    } 
+   
+    else {
+        alert("Your request is done!");
+        form.reset(); 
+        return true;
+    }
+});
+
+
+Notification.requestPermission().then(Permissions =>{
+    if(Permissions === "granted")
+{
+    setTimeout(()=>{
+        new Notification("Evariste Bapfekurera", {body: "welcome to Hope tree Eva website"});
+    },3000);
+}
+});
+
+</script>
+    <script src="./index.js"></script>
+</body>
+</html>

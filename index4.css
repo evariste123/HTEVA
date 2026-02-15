@@ -1,0 +1,335 @@
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+.card{
+    position: relative;
+    bottom: 0px;
+    overflow-wrap: break-word;
+    width: auto;
+    padding: 10px;
+    justify-items: end;
+    background: #364253; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.logo{
+    position: relative;
+    font: 20px bold;
+    justify-self: left;
+    color: limegreen;
+    width: 10vw;
+    text-align: center;
+    border-radius: 10px;
+    top: 10px;
+    height: 6vh;
+    background-color: rgb(21, 107, 160);
+}
+.logo:hover{
+    position: relative;
+    background-color: #abffab;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.logo b{
+    position: relative;
+    text-align: center;
+    top: 10px;
+}
+.logo a{
+    position: relative;
+    text-decoration: none;
+}
+@media(max-width:600px){
+    .logo b{
+        position: relative;
+        font-size: 20px;
+        top: 30px;
+        text-align: center;
+        color: white;
+    }
+}
+@media(max-width:600px){
+    .logo{
+        position: relative;
+        width: 30vw;
+        height: 10vh;
+        border-radius: 20px;
+        background-color: rgb(2, 31, 2);
+        margin-bottom: 50px;
+        justify-self: center;
+    }
+}
+.menu{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.menu a{
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: #faf7f7;
+    bottom: 20px;
+}
+.menu a:hover{
+    position: relative;
+    transition: all ease 0.3s;
+    color: indianred;
+    transform: translateX(2px);
+    cursor: pointer;
+}
+#product.product{
+    position: relative;
+    width: 70vw;
+    height: 50vh;
+    border-radius: 20px;
+    background-color: #697b94;
+    font: 20px bold;
+    color: white;
+    justify-self: center;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+#product.product:hover{
+    transition: ease 0.3s;
+    background-color: #0d6e3a;
+    cursor: pointer;
+}
+.product span{
+    position: relative;
+    color: rgb(221, 4, 250);
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.product p{
+    position: relative;
+    top: 50px;
+}
+.product p:hover{
+    color: white;
+}
+
+.card1{
+    position: relative;
+    width: auto;
+    height: auto;
+    top: 30px;
+}
+.card2{
+    position: relative;
+    width: 30vw;
+    height: auto;
+    background-color: white;
+    justify-self: left;
+    margin-left: 20px;
+    text-align: center;
+    top: 20px;
+    border-radius: 10px;
+}
+.card2 img{
+    position: relative;
+    width: 25vw;
+    height: 25vh;
+    border-radius: 10px;
+    top: 10px;
+}
+.card2 p{
+    position: relative;
+    color: #222121;
+    font-size: medium;
+    font-weight: 500;
+    overflow-wrap: break-word;
+}
+.card2 p:hover{
+    color: white;
+}
+.card2:hover{
+     transition: ease 0.3s;
+    background-color: #01262b;
+    border: 1px solid #00b7ff;
+    padding-left: 2px;
+    height: auto;
+    cursor: pointer;
+}
+.card3{
+    position: absolute;
+    justify-self: center;
+    width: 30vw;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    top: 0px;
+}
+.card3 img{
+    position: relative;
+    top: 10px;
+    width: 25vw;
+    height: 25vh;
+    top: 10px;
+    border-radius: 10px;
+}
+.card3 p{
+    position: relative;
+    color: #1d1d1d;
+    overflow-wrap: break-word;
+}
+.card3 p:hover{
+    color: white;
+}
+.card3:hover{
+     transition: ease 0.3s;
+    background-color: #063036;
+    border: 1px solid hsl(207, 100%, 50%);
+    padding-left: 2px;
+    height: auto;
+    cursor: pointer;
+}
+.card4{
+    position: absolute;
+    width: 30vw;
+    height: auto;
+    background-color: white;
+    top: 0px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    justify-self: right;
+    margin-right: 20px;
+}
+.card4 img{
+    position: relative;
+    width: 25vw;
+    height: 25vh;
+    border-radius: 10px;
+    top: 10px;
+}
+.card4 p{
+    position: relative;
+    color: #000000;
+    overflow-wrap: break-word;
+}
+.card4 p:hover{
+    color: white;
+}
+.card4:hover{
+     transition: ease 0.3s;
+    background-color: #01262b;
+    border: 1px solid #0099ff;
+    padding-left: 2px;
+    height: auto;
+    cursor: pointer;
+}
+@media(max-width:600px){
+    #product.product{
+        position: relative;
+        width: 90vw;
+        height: auto;
+        top: 20px;
+        background-color: white;
+        justify-self: center;
+        text-align: center;
+        color: black;
+        border: 1px solid red;
+    }
+}
+@media(max-width:600px){
+    .product span{
+        position: relative;
+        color: blue;
+        bottom: 0px;
+    }
+}
+@media(max-width:600px){
+    .product p{
+        position: relative;
+        top: 0px;
+    }
+}
+
+@media(max-width:600px){
+    .card1{
+        position: relative;
+        width: auto;
+        height: auto;
+        top: 30px;
+    }
+}
+@media(max-width:600px){
+    .card2{
+        position: absolute;
+        justify-self: center;
+        width: 90vw;
+        height: auto;
+        background-color: wheat;
+        color: black;
+        margin-left: 0px;
+        top: 10px;
+        border-radius: 20px;
+        border: 1px solid orange;
+    }
+}
+@media(max-width:600px){
+    .card2 img{
+        position: relative;
+        width: 80vw;
+        height: 30vh;
+        border-radius: 10px;
+        top: 10px;
+    }
+}
+
+@media(max-width:600px){
+    .card3{
+        position: absolute;
+        background-color: wheat;
+        color: black;
+        text-align: center;
+        justify-self: center;
+        width: 90vw;
+        height: auto;
+        top: 410px;
+        border-radius: 20px;
+        border: 1px solid yellow;
+    }
+}
+@media(max-width:600px){
+    .card3 img{
+        position: relative;
+        width: 80vw;
+        height: 30vh;
+        border-radius: 10px;
+        top: 10px;
+    }
+}
+
+@media(max-width:600px){
+    .card4{
+        position: absolute;
+        margin-right: 0px;
+        justify-self: center;
+        text-align: center;
+        cursor: pointer;
+        width: 90vw;
+        height: auto;
+        top: 830px;
+        background-color: wheat;
+        color: black;
+        border: 1px solid blue;
+        border-radius: 20px;
+    }
+}
+@media(max-width:600px){
+    .card4 img{
+        position: relative;
+        width: 80vw;
+        height: 30vh;
+        border-radius: 10px;
+        top: 10px;
+    }
+}
+@media(max-width:600px){
+    .card4 p{
+        color: black;
+    }
+}

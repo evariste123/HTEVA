@@ -1,0 +1,551 @@
+body{
+   margin: 0;
+   font-family: Arial, sans-serif;
+    background-color: #6f5770;
+    font: 20px bold;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: capitalize;
+    color: rgb(3, 3, 3);
+}
+#home.section{
+    position: relative;
+    justify-self: center;
+    width: 100vw;
+    height: 100vh;
+    bottom: 21px;
+    background-image: url('./image/download\ \(3\).jpeg');
+    background-size: cover;
+    opacity: 1;
+    backface-visibility: inherit;
+}
+@media(max-width:600px){
+    .section{
+        position: relative;
+        background-size: cover;
+        background-image: url('./image/images\ \(2\).jpeg');
+    }
+}
+.section h1{
+    position: relative;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-style: italic;
+    height: 8vh;
+    width: auto;
+    background-color: darkcyan;
+    overflow-wrap: break-word;
+    animation-timing-function: 300ms;
+    animation-duration: 4s;
+    animation-name: h1;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+@keyframes h1{
+    0%{transform: translateX(0px);opacity: 1;color: orangered;};
+    25%{transform: translateX(360px);opacity: 0;color: blue;};
+}
+@media (max-width:600px){
+    .section h1{
+        position: relative;
+        font-size: 20px;
+        font-weight: 900;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+.card{
+    position: relative;
+    bottom: 27px;
+    overflow-wrap: break-word;
+    width: auto;
+    padding: 10px;
+    justify-items: end;
+    background:linear-gradient(to right,skyblue,cyan,white) ;
+}
+.logo{
+    position: relative;
+    font: 20px bold;
+    justify-self: left;
+    color: limegreen;
+    width: 10vw;
+    text-align: center;
+    border-radius: 10px;
+    top: 10px;
+    height: 6vh;
+    background-color: rgb(21, 107, 160);
+}
+.logo b{
+    position: relative;
+    text-align: center;
+    top: 5px;
+}
+@media(max-width:600px){
+    .logo b{
+        position: relative;
+        font-size: 20px;
+        top: 23px;
+        color: white;
+    }
+}
+@media(max-width:600px){
+    .logo{
+        position: relative;
+        width: 40vw;
+        height: 10vh;
+        border-radius: 20px;
+        background-color: rgb(2, 31, 2);
+        margin-bottom: 50px;
+        justify-self: center;
+    }
+}
+.menu{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.menu a{
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: rgb(23, 1, 27);
+    bottom: 20px;
+}
+.menu a:hover{
+    position: relative;
+    transition: all ease 0.3s;
+    color: indianred;
+    transform: translateX(2px);
+    cursor: pointer;
+}
+.menu button{
+    position: relative;
+    width: 7vw;
+    border-radius: 10px;
+    height: 6vh;
+    bottom: 5px;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    border: none;
+    background-color: rgb(2, 43, 2);
+    color: white;
+    font-weight: 900;
+}
+@media(max-width:600px){
+    .menu button{
+        position: relative;
+    width: 10vw;
+    border-radius: 5px;
+    height: 6vh;
+    bottom: 5px;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    border: none;
+    background-color: rgb(2, 43, 2);
+    color: white;
+    font-weight: 900;
+    }
+}
+.menu button:hover{
+    position: relative;
+    background: linear-gradient(to bottom,lime,purple);
+    cursor: pointer;
+    color: black;
+    border-radius: 10px;
+}
+.search{
+    position: relative;
+    bottom: 20px;
+    justify-self: right;
+    flex-wrap: wrap;
+}
+.search input{
+    position: relative;
+    width: 20vw;
+    height: 4vh;
+    flex-wrap: wrap;
+    background-color: #19191a;
+    border: 1px solid white;
+}
+.search input:hover{
+    position: relative;
+    background-color: #01011b;
+    color: white;
+    font-size: medium;
+    cursor: pointer;
+    border: 1px solid wheat;
+}
+.search button{
+    position: relative;
+    width: 6vw;
+    height: 5vh;
+    top: 0px;
+    background-color: rgb(24, 23, 23);
+    border: none;
+    border-radius: 5px;
+}
+.search button:hover{
+    position: relative;
+    background-color: rgb(6, 17, 17);
+    color: white;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+@media(max-width:600px){
+    .search button{
+    position: relative;
+    width: 10vw;
+    height: 5vh;
+    top: 7px;
+    background-color: rgb(24, 23, 23);
+    border: none;
+    border-radius: 5px;
+    }
+}
+.button{
+    position: relative;
+    justify-self: right;
+}
+.button button{
+    position: relative;
+    width: 7vw;
+    height: 6vh;
+    font-size: medium;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 20px;
+    background: linear-gradient(to right,cyan,indianred,skyblue);
+}
+@media(max-width:600px){
+    .button button{
+    position: relative;
+    width: 20vw;
+    height: 6vh;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 10px;
+    background: linear-gradient(to right,rgb(1, 41, 41),rgb(51, 1, 56),rgb(1, 87, 34));
+    }
+}
+.card1{
+    position: relative;
+    justify-self: center;
+    top: 0px;
+    overflow-wrap: break-word;
+}
+.card1 button{
+    position: relative;
+    width: 20vw;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+    font: 20px bold;
+    color: rgb(12, 12, 12);
+    height: 7vh;
+    top: 100px;
+    background-color: lightpink;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+@media(max-width:600px){
+    .card1 button{
+        position: relative;
+    width: 40vw;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    top: 400px;
+    color: #faf6f6;
+    height: 7vh;
+    background-color: rgb(5, 2, 39);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    }
+}
+.card1 button:hover{
+    position: relative;
+    color: white;
+    background-color: #000;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    border-radius: 10px;
+}
+.card2{
+    position: relative;
+    width: auto;
+    height: auto;
+    top: 250px;
+}
+@media(max-width:600px){
+    .card2{
+        position: relative;
+        top: 120px;
+    }
+}
+.card3{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    justify-self: left;
+    background-image:url('./image/download.jpeg');
+    border: none;
+    border-radius: 60px;
+    top: 10px;
+    margin-left: 20px;
+}
+@media(max-width:600px){
+    .card3{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    justify-self: left;
+    background-image:url('./image/download.jpeg');
+    border: none;
+    border-radius: 60px;
+   bottom: 500px;
+    }
+}
+.card3 h3{
+    position: relative;
+    top: 40px;
+    color: rgb(10, 10, 10);
+    text-align: center;
+}
+.card3 a{
+    position: relative;
+    text-decoration: none;
+}
+.card4{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image:url('./image/download\ \(1\).jpeg');
+    justify-self: center;
+    border: none;
+    border-radius: 60px;
+    bottom: 0px;
+}
+@media(max-width:600px){
+    .card4{
+        position: absolute;
+        width: 120px;
+        height: 120px;
+    background-image:url('./image/download\ \(1\).jpeg');
+    justify-self: center;
+    border: none;
+    border-radius: 60px;
+    bottom: 130px;
+    }
+}
+.card4 h3{
+    position: relative;
+    top: 30px;
+    color: rgb(8, 8, 8);
+    cursor: pointer;
+    text-align: center;
+}
+.card4 a{
+    position: relative;
+    text-decoration: none;
+}
+.card5{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image:url('./image/download\ \(2\).jpeg');
+    justify-self: right;
+    margin-right: 20px;
+    border: none;
+    border-radius: 60px;
+    bottom: 0px;
+}
+.card5 h3{
+    position: relative;
+    color: rgb(8, 8, 8);
+    text-align: center;
+    top: 30px;
+}
+.card5 a{
+    position: relative;
+    text-decoration: none;
+}
+.para{
+    position: relative;
+    text-align: center;
+    color: white;
+    top: 260px;
+}
+@media(max-width:600px){
+    .para{
+        position: relative;
+        color: black;
+        top: 300px;
+    }
+}
+#footer.footer{
+    position: relative;
+    width: 100vw;
+    height: auto;
+    background-color: #000;
+    top: 350px;
+}
+@media(max-width:600px){
+    #footer.footer{
+        position: relative;
+        top: 630px;
+        background-color: rgb(1, 26, 54);
+    }
+}
+.links{
+    position: relative;
+    width: 20vw;
+    height: auto;
+    background-color: transparent;
+    text-align: center;
+    justify-self: left;
+    margin-left: 30px;
+    overflow-wrap: wrap;
+    color: white;
+    top: 10px;
+}
+.link{
+    display: grid;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.link a{
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font: 20px bold;
+    bottom: 20px;
+}
+.link a:hover{
+    position: relative;
+    transition: all ease 0.3s;
+    color: wheat;
+    cursor: pointer;
+    transform: translateY(2px);
+    padding-top: 0px;
+}
+.social{
+    position:absolute;
+    width: 20vw;
+    height: auto;
+    background-color: transparent;
+    justify-self: right;
+    text-align: center;
+    margin-right: 30px;
+    top: 0px;
+    color: white;
+
+}
+.social-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.social-links img{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+.social-links img:hover{
+    position:relative;
+    transition: all ease-in 0.3s;
+    transform: translateY(5px);
+    margin-bottom: 0px;
+    box-shadow: 5px 5px 5px white;
+    cursor: pointer;
+}
+@media(max-width:600px){
+    .social{
+        position: absolute;
+        justify-self: right;
+        margin-right: 20px;
+        width: 30vw;
+        height: auto;
+        text-align: center;
+    }
+}
+.google{
+position: relative;
+}
+@media (max-width:600px){
+    .google{
+        position: relative;
+        top: 150px;
+       
+    }
+}
+.hello{
+    position: relative;
+    justify-self: center;
+    width: 40vw;
+    height: auto;
+    background-color: transparent;
+    bottom: 150px;
+    color: white;
+    text-align: center;
+}
+@media(max-width:600px){
+     .hello{
+        position: relative;
+        justify-self: left;
+        margin-left: 30px;
+        text-align: center;
+        width: 30vw;
+        height: auto;
+        top: 100px;
+     }
+}
+.hello input{
+    position: relative;
+    width: 28vw;
+    height: 6vh;
+    color: white;
+    background-color: #19191a;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+@media(max-width:600px){
+    .hello input{
+    position: relative;
+    width: 40vw;
+    height: 6vh;
+    background-color: #010b1a;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+    }
+}
+.hello button{
+    position: relative;
+    width: 10vw;
+    background-color: lime;
+    border: none;
+    top: 3px;
+    border-radius: 5px;
+    font: 20px bold;
+    cursor: pointer;
+    color: rgb(7, 7, 7);
+    height: 7vh;
+}
+@media(max-width:600px){
+    .hello button{
+    position: relative;
+    width: 30vw;
+    background-color: rgb(2, 109, 196);
+    border: none;
+    top: 5px;
+    border-radius: 5px;
+    font: 20px bold;
+    color: #faf9f9;
+    height: 7vh;
+    }
+}
