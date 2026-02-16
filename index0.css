@@ -42,7 +42,6 @@ body img{
     width: auto;
     padding: 10px;
     justify-items: end;
-    /* background:linear-gradient(to right,skyblue,cyan,white) ; */
     background: #212c3b; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 .logo{
@@ -117,7 +116,7 @@ body img{
     width: auto;
     bottom: 20px;
     height: 90vh;
-    background: #172a45; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    background: #132749; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 .hero-text{
     position: relative;

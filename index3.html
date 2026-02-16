@@ -14,7 +14,7 @@
             <a href="./index0.html">about</a>
             <a href="#service">service</a>
             <a href="./index4.html">product</a>
-            <a href="#blog">blog</a>
+            <a href="./index6.html">blog</a>
              <a href="#footer">contact</a>
     </div>
 </div>
@@ -91,7 +91,7 @@
             <a href="./index0.html">about</a>
             <a href="#service">service</a>
             <a href="./index4.html">product</a>
-            <a href="#blog">blog</a>
+            <a href="./index6.html">blog</a>
              <a href="#footer">contact</a>
         </div>
       </div>
@@ -122,5 +122,16 @@
         <p>copied by HTEVA website are reserved</p>
       </div>
      </section>
+     <script>
+      const service = document.getElementById("service");
+      service.addEventListener('click', function(e){
+        if(e.target === service) close.click();
+        {
+          setTimeout(()=>{
+            alert("service is loading...");
+          },3000);
+        }
+      });
+     </script>
 </body>
 </html>

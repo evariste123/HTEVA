@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTEVA Blog | Digital Growth & Global Insights</title>
+     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="./index6.css">
+</head>
+<body>
+    <header>
+        
+     <div class="navbar">
+   <div class="logo"> <a href="./index0.html"><b>HTEVA</b></a></div>
+    <div class="menu">
+        <a href="index.html">home</a>
+            <a href="./index0.html">about</a>
+            <a href="./index3.html">service</a>
+            <a href="./index4.html">product</a>
+            <a href="#blog">blog</a>
+             <a href="#footer">contact</a>
+    </div>
+</div>
+    </header>
+
+    
+   
+        
+        
+        <section id="featured-post" class="container">
+            <div class="item0">
+                
+                <img src="./image4/1.jpeg" alt="Global Business Strategy">
+                <div class="post">
+                    <span class="category">Business Strategy</span>
+                    <h2>How to Scale Your Local Business Globally in 2026</h2>
+                    <p>Discover the digital roadmaps and market analysis techniques used by <br> Hope Tree Eva to transform local startups into international powerhouses.</p>
+                    <p><small>Published: February 16, 2026 | By Evariste</small></p>
+                    <a href="article-scaling.html"><button type="button">Read Full Article&RightArrow;</button></a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="recent-posts" class="item">
+            <h3>Recent Insights</h3>
+            
+            <div class="item1">
+                
+                
+                <div class="item2">
+                    <img src="./image4/2.jpeg" alt="Marketing Data">
+                    <h4>Digital Marketing Trends in Rwanda</h4>
+                    <p>Understanding SEO and social algorithms specifically for the East African market...</p>
+                    <a href="#">Read More</a>
+                </div>
+
+                
+                <div class="item3">
+                    <div class="card0" id="myPlot"></div>
+                    <h4>Mastering Your Financial Growth</h4>
+                    <p>How digital assets and automated banking are changing the profit game...</p>
+                    <a href="#">Read More&RightArrow;</a>
+                </div>
+
+               
+                <div class="item4" >
+                    <img src="./image4/3.jpeg" alt="Global Connectivity" >
+                    <h4>The Future of Global Roaming</h4>
+                    <p>Staying connected without borders: A guide to international communication...</p>
+                    <a href="#">Read More&RightArrow; </a>
+                </div>
+
+                
+                <div class="item5">
+                    <img src="./image4/4.png" alt="E-commerce Sales" >
+                    <h4>Building a 24/7 E-commerce Hub</h4>
+                    <p>Steps to automate your sales and logistics for maximum digital efficiency...</p>
+                    <a href="#">Read More&RightArrow;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="newsletter" class="item6">
+            <div class="box">
+                <h3>Stay Updated with HTEVA</h3>
+                <p>Get the latest business strategies and tech news sent to your inbox.</p>
+                <form action="https://formspree.io" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; width: 250px;">
+                    <button type="submit">Subscribe Now</button>
+                </form>
+            </div>
+        </section>
+
+    
+
+    <section class="footer">
+        <div class="top">
+            <h4>Hope Tree Eva (HTEVA)</h4>
+            <p>Empowering Digital Growth & Global Connectivity</p>
+            <p>Emergency Support: <a href="tel:+250785786547">+250 785 786 547</a></p>
+        </div>
+        
+        <div class="bottom">
+            <p>&copy; 2026 HTEVA Hub. All Rights Reserved.</p>
+            <p>Engineered by <b>Evariste</b> - Best Programmer 2026</p>
+        </div>
+    </section>
+    <script>
+        const x = [2019 ,2020,2021,2022,2023,2024,2025];
+        const y = [50,55,60,60,70,70,80];
+        const data =[{
+            x:x,
+            y:y,
+            type:"bar",
+            arientation:"horizontal",
+            marker:{color:"green"}
+        }];
+       const layout = {title:"DIGITAL'S SHARE OF TOTAL ADVERTISING SPEND"};
+        Plotly.newPlot("myPlot",data,layout);
+
+        window.addEventListener('resize', () => {
+  Plotly.Plots.resize('myPlot');
+});
+</script>
+</body>
+</html>
