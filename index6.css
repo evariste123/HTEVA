@@ -358,7 +358,7 @@ body{
      position: relative;
     width: auto;
     top: 550px;
-    height: 40vh;
+    height: 55vh;
     text-align: center;
     background-color: #121820;
 }
@@ -560,7 +560,7 @@ body{
         top: 100px;
         width: 90vw;
         justify-self: center;
-        height: 30vh;
+        height: 40vh;
         border-radius: 10px 10px 0 0;
     }
 }
@@ -568,18 +568,20 @@ body{
     .box{
         position: relative;
         justify-self: center;
+        text-align: center;
     }
 }
 @media(max-width:600px){
     .box input{
         position: relative;
-        width: 30vw;
+        width: 0vw;
+        margin-left: 0px;
     }
 }
 @media(max-width:600px){
     .box button{
         position: relative;
-        width: 20vw;
+        width: 22vw;
         height: 6vh;
         transform: translate(50%);
         top: 20px;
@@ -588,7 +590,7 @@ body{
 @media(max-width:600px){
     .footer{
         position: relative;
-        top:70px;
+        top:50px;
         width: 90vw;
         justify-self: center;
     }

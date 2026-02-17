@@ -213,7 +213,7 @@ position: relative;
 }
 .card4 p{
     position: relative;
-    top: 20px;
+    top: 10px;
     color: white;
 }
 .card5{
@@ -242,7 +242,7 @@ position: relative;
 }
 .card5 p{
     position: relative;
-    top: 20px;
+    top: 10px;
     color: white;
     overflow-wrap: break-word;
 }
