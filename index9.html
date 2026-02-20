@@ -6,8 +6,8 @@
     <title>EVAI DEEP · Premium E-Commerce Platform</title>
     <style>
         /* ============================================
-           EVAI DEEP v6.0 - Professional E-Commerce
-           User Details · Advertising Animation · Footer
+           EVAI DEEP v8.0 - Complete Navigation System
+           Cookie Consent Popup · GDPR Compliant
            ============================================ */
         
         * {
@@ -97,6 +97,220 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, rgba(42, 47, 79, 0.9), rgba(145, 127, 179, 0.9));
+        }
+
+        /* Cookie Consent Popup */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 400px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            z-index: 10000;
+            animation: slideUp 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cookie-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cookie-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+        }
+
+        .cookie-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .cookie-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .cookie-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .cookie-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .cookie-option-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cookie-option-info i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        .cookie-option-label {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .cookie-option-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--success);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        input:disabled + .slider {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .cookie-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .cookie-btn.accept {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .cookie-btn.accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42, 47, 79, 0.3);
+        }
+
+        .cookie-btn.customize {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .cookie-btn.customize:hover {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .cookie-btn.reject {
+            background: var(--bg-secondary);
+            color: var(--error);
+            border: 1px solid var(--error);
+        }
+
+        .cookie-btn.reject:hover {
+            background: var(--error);
+            color: white;
+        }
+
+        .cookie-footer {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .cookie-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cookie-footer a:hover {
+            text-decoration: underline;
         }
 
         /* Main Container */
@@ -285,6 +499,7 @@
             border-radius: 8px;
             transition: var(--transition);
             font-size: 14px;
+            cursor: pointer;
         }
 
         .nav-link:hover {
@@ -407,12 +622,17 @@
             color: white;
         }
 
+        /* Main Content Area */
+        .main-content {
+            min-height: 500px;
+            margin-bottom: 40px;
+        }
+
         /* Main Content Grid */
         .main-grid {
             display: grid;
             grid-template-columns: 1fr 350px;
             gap: 30px;
-            margin-bottom: 40px;
         }
 
         /* Product Grid */
@@ -748,6 +968,155 @@
             box-shadow: 0 10px 20px rgba(42, 47, 79, 0.2);
         }
 
+        /* Page Content Styles (FAQs, Policies) */
+        .page-content {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .page-header h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .page-section {
+            margin-bottom: 40px;
+        }
+
+        .page-section h3 {
+            font-size: 24px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .page-section h4 {
+            font-size: 18px;
+            color: var(--text-primary);
+            margin: 20px 0 10px;
+        }
+
+        .page-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .page-section ul, .page-section ol {
+            margin: 15px 0 15px 20px;
+            color: var(--text-secondary);
+        }
+
+        .page-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* FAQ Styles */
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: var(--bg-secondary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .faq-question:hover {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Policy Cards */
+        .policy-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .policy-card h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .policy-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Table Styles */
+        .policy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .policy-table th,
+        .policy-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .policy-table th {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .policy-table tr:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
         /* Cart Sidebar */
         .cart-sidebar {
             position: fixed;
@@ -1004,6 +1373,7 @@
             text-decoration: none;
             font-size: 14px;
             transition: var(--transition);
+            cursor: pointer;
         }
 
         .footer-links a:hover {
@@ -1051,6 +1421,7 @@
         .footer-bottom a {
             color: var(--primary);
             text-decoration: none;
+            cursor: pointer;
         }
 
         .payment-methods-footer {
@@ -1098,6 +1469,34 @@
             }
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 999;
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .main-grid {
@@ -1132,6 +1531,35 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+
+            .page-content {
+                padding: 20px;
+            }
+
+            .page-header h2 {
+                font-size: 24px;
+            }
+
+            .cookie-consent {
+                left: 10px;
+                right: 10px;
+                max-width: none;
+            }
+        }
+        .categories button{
+            position: relative;
+            text-decoration: none;
+            width: 8vw;
+            height: 6vh;
+            border-radius: 10px;
+            border: none;
+        }
+        .categories button:hover{
+            transition: ease 0.3s;
+            background-color: #CD7F32;
+            color: white;
+            font: bold;
+            cursor: pointer;
         }
     </style>
 
@@ -1148,14 +1576,95 @@
         <div class="bg-overlay"></div>
     </div>
 
+    <!-- Cookie Consent Popup -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-header">
+            <div class="cookie-icon">🍪</div>
+            <div class="cookie-title">Cookie Settings</div>
+        </div>
+        <div class="cookie-text">
+            We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
+        </div>
+        
+        <div class="cookie-options" id="cookieOptions">
+            <div class="cookie-option">
+                <div class="cookie-option-info">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <div class="cookie-option-label">Essential Cookies</div>
+                        <div class="cookie-option-desc">Required for basic site functionality</div>
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="essentialCookies" checked disabled>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-info">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <div class="cookie-option-label">Analytics Cookies</div>
+                        <div class="cookie-option-desc">Help us improve our website</div>
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="analyticsCookies" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-info">
+                    <i class="fas fa-ad"></i>
+                    <div>
+                        <div class="cookie-option-label">Marketing Cookies</div>
+                        <div class="cookie-option-desc">Used for targeted advertising</div>
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="marketingCookies">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-info">
+                    <i class="fas fa-cog"></i>
+                    <div>
+                        <div class="cookie-option-label">Functional Cookies</div>
+                        <div class="cookie-option-desc">Remember your preferences</div>
+                    </div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="functionalCookies" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="cookie-buttons">
+            <button class="cookie-btn accept" onclick="app.acceptCookies()">Accept All</button>
+            <button class="cookie-btn customize" onclick="app.toggleCookieOptions()" id="customizeBtn">Customize</button>
+            <button class="cookie-btn reject" onclick="app.rejectCookies()">Reject All</button>
+        </div>
+
+        <div class="cookie-footer">
+            <a onclick="app.showPage('privacy')">Privacy Policy</a> • 
+            <a onclick="app.showPage('terms')">Terms of Service</a> • 
+            <a onclick="app.showPage('privacy')">Cookie Policy</a>
+        </div>
+    </div>
+
     <!-- Main Container -->
     <div class="app-container">
         <!-- Header -->
         <header class="header">
-            <div class="logo">
+            <div class="logo" onclick="app.showPage('home')" style="cursor: pointer;">
                 <div class="logo-icon">🚀</div>
                 <div class="logo-text">
-                    <h1 id="siteTitle">EVAI DEEP</h1>
+                    <h1 id="siteTitle">Marketing</h1>
                     <p id="siteSubtitle">Premium E-Commerce Platform</p>
                 </div>
             </div>
@@ -1189,11 +1698,11 @@
 
             <!-- Navigation -->
             <nav class="nav-links">
-                <a href="#" class="nav-link active" data-page="home">Home</a>
-                <a href="#" class="nav-link" data-page="products">Products</a>
-                <a href="#" class="nav-link" data-page="premium">Premium</a>
-                <a href="#" class="nav-link" data-page="old">Vintage</a>
-                <a href="#" class="nav-link cart-link" id="cartToggle">
+                <a class="nav-link active" data-page="home">Home</a>
+                <a class="nav-link" data-page="products">Products</a>
+                <a class="nav-link" data-page="premium">Premium</a>
+                <a class="nav-link" data-page="old">Vintage</a>
+                <a class="nav-link cart-link" id="cartToggle">
                     🛒 Cart
                     <span class="cart-badge" id="cartCount">0</span>
                 </a>
@@ -1241,77 +1750,12 @@
             <button class="category-btn" data-category="books">📚 Books</button>
             <button class="category-btn" data-category="premium">⭐ Premium</button>
             <button class="category-btn" data-category="old">📦 Vintage</button>
+            <a href="./index0.html"><button type="button">back</button></a>
         </div>
 
-        <!-- Main Content Grid -->
-        <div class="main-grid">
-            <!-- Product Grid -->
-            <div class="product-grid" id="productGrid"></div>
-
-            <!-- User Details Sidebar -->
-            <div class="user-sidebar">
-                <div class="user-header">
-                    <div class="user-avatar">👤</div>
-                    <div class="user-title">
-                        <h3>User Details</h3>
-                        <p>Complete your profile</p>
-                    </div>
-                </div>
-
-                <form class="user-form" id="userForm">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" id="fullName" placeholder="John Doe" value="John Doe">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" id="email" placeholder="john@example.com" value="john@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" id="phone" placeholder="+1 234 567 890" value="+250 785 786 547">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Country</label>
-                            <select id="country">
-                                <option value="US">United States</option>
-                                <option value="UK">United Kingdom</option>
-                                <option value="CA">Canada</option>
-                                <option value="AU">Australia</option>
-                                <option value="RW" selected>Rwanda</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>City</label>
-                            <input type="text" id="city" placeholder="City" value="Kigali">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Delivery Address</label>
-                        <textarea id="address" placeholder="Street, Building, Apartment">KG 123 St, Kigali</textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Preferred Payment</label>
-                        <select id="preferredPayment">
-                            <option value="card">Credit Card</option>
-                            <option value="paypal">PayPal</option>
-                            <option value="mobile">Mobile Money</option>
-                            <option value="cash">Cash on Delivery</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="save-profile-btn" id="saveProfileBtn">
-                        <i class="fas fa-save"></i> Save Profile
-                    </button>
-                </form>
-            </div>
+        <!-- Main Content Area -->
+        <div class="main-content" id="mainContent">
+            <!-- Content will be dynamically loaded here -->
         </div>
 
         <!-- Marketing & SEO Link -->
@@ -1323,7 +1767,7 @@
         <footer class="footer">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>About EVAI DEEP</h3>
+                    <h3>About Marketing & SEO</h3>
                     <p>Your premier destination for premium products. We offer the best quality products at competitive prices with fast delivery worldwide.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -1337,13 +1781,13 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Returns & Refunds</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a onclick="app.showPage('about')">About Us</a></li>
+                        <li><a onclick="app.showPage('contact')">Contact Us</a></li>
+                        <li><a onclick="app.showPage('faqs')">FAQs</a></li>
+                        <li><a onclick="app.showPage('shipping')">Shipping Policy</a></li>
+                        <li><a onclick="app.showPage('returns')">Returns & Refunds</a></li>
+                        <li><a onclick="app.showPage('terms')">Terms & Conditions</a></li>
+                        <li><a onclick="app.showPage('privacy')">Privacy Policy</a></li>
                     </ul>
                 </div>
 
@@ -1371,7 +1815,7 @@
                     <h3>Newsletter</h3>
                     <p>Subscribe to get updates on new products and exclusive offers!</p>
                     <form class="newsletter-form" id="newsletterForm">
-                        <input type="email" placeholder="Your email address">
+                        <input type="email" placeholder="your.email@example.com">
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                     <div class="payment-methods-footer">
@@ -1384,9 +1828,11 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 EVAI DEEP. All rights reserved. | Designed with ❤️ in Rwanda | Contact: +250 785 786 547</p>
+                <p>&copy; 2025 Marketing. All rights reserved. | Designed with ❤️ in Rwanda | Contact: +250 785 786 547</p>
                 <p style="margin-top: 10px;">
-                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Cookie Policy</a>
+                    <a onclick="app.showPage('privacy')">Privacy Policy</a> | 
+                    <a onclick="app.showPage('terms')">Terms of Service</a> | 
+                    <a onclick="app.showPage('privacy')">Cookie Policy</a>
                 </p>
             </div>
         </footer>
@@ -1429,7 +1875,7 @@
             <form id="paymentForm">
                 <div class="form-group">
                     <label>Cardholder Name</label>
-                    <input type="text" id="cardName" placeholder="John Doe" required>
+                    <input type="text" id="cardName" placeholder="Enter your full name (e.g., evariste bapfekurera)" required>
                 </div>
 
                 <div class="form-group">
@@ -1440,11 +1886,11 @@
                 <div class="card-details">
                     <div class="form-group">
                         <label>Expiry</label>
-                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+                        <input type="text" id="expiry" placeholder="MM/YY (e.g., 12/25)" maxlength="5" required>
                     </div>
                     <div class="form-group">
                         <label>CVV</label>
-                        <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+                        <input type="text" id="cvv" placeholder="123 (3 digits)" maxlength="3" required>
                     </div>
                 </div>
 
@@ -1453,10 +1899,13 @@
         </div>
     </div>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
     <script>
         // ============================================
-        // EVAI DEEP v6.0 - Complete E-Commerce System
-        // User Details · Advertising Animation · Footer
+        // EVAI DEEP v8.0 - Complete Navigation System
+        // Cookie Consent Popup · GDPR Compliant
         // ============================================
 
         class EVAIDeep {
@@ -1468,6 +1917,8 @@
                 this.currentCategory = 'all';
                 this.currentLanguage = 'en';
                 this.currentTheme = 'light';
+                this.currentPage = 'home';
+                this.cookieOptionsExpanded = false;
                 
                 // Language translations
                 this.translations = {
@@ -1488,96 +1939,6 @@
                         books: 'Books',
                         addToCart: 'Add to Cart',
                         buyNow: 'Buy Now'
-                    },
-                    es: {
-                        siteTitle: 'EVAI DEEP',
-                        siteSubtitle: 'Plataforma de Comercio Premium',
-                        searchPlaceholder: 'Buscar productos...',
-                        home: 'Inicio',
-                        products: 'Productos',
-                        premium: 'Premium',
-                        vintage: 'Vintage',
-                        cart: 'Carrito',
-                        allProducts: 'Todos los Productos',
-                        electronics: 'Electrónica',
-                        fashion: 'Moda',
-                        home: 'Hogar',
-                        sports: 'Deportes',
-                        books: 'Libros',
-                        addToCart: 'Añadir al Carrito',
-                        buyNow: 'Comprar Ahora'
-                    },
-                    fr: {
-                        siteTitle: 'EVAI DEEP',
-                        siteSubtitle: 'Plateforme E-Commerce Premium',
-                        searchPlaceholder: 'Rechercher...',
-                        home: 'Accueil',
-                        products: 'Produits',
-                        premium: 'Premium',
-                        vintage: 'Vintage',
-                        cart: 'Panier',
-                        allProducts: 'Tous les Produits',
-                        electronics: 'Électronique',
-                        fashion: 'Mode',
-                        home: 'Maison',
-                        sports: 'Sports',
-                        books: 'Livres',
-                        addToCart: 'Ajouter au Panier',
-                        buyNow: 'Acheter'
-                    },
-                    de: {
-                        siteTitle: 'EVAI DEEP',
-                        siteSubtitle: 'Premium E-Commerce Plattform',
-                        searchPlaceholder: 'Produkte suchen...',
-                        home: 'Startseite',
-                        products: 'Produkte',
-                        premium: 'Premium',
-                        vintage: 'Vintage',
-                        cart: 'Warenkorb',
-                        allProducts: 'Alle Produkte',
-                        electronics: 'Elektronik',
-                        fashion: 'Mode',
-                        home: 'Zuhause',
-                        sports: 'Sport',
-                        books: 'Bücher',
-                        addToCart: 'In den Warenkorb',
-                        buyNow: 'Jetzt Kaufen'
-                    },
-                    ja: {
-                        siteTitle: 'EVAI DEEP',
-                        siteSubtitle: 'プレミアムECプラットフォーム',
-                        searchPlaceholder: '商品を検索...',
-                        home: 'ホーム',
-                        products: '商品',
-                        premium: 'プレミアム',
-                        vintage: 'ビンテージ',
-                        cart: 'カート',
-                        allProducts: '全商品',
-                        electronics: '電子機器',
-                        fashion: 'ファッション',
-                        home: 'ホーム',
-                        sports: 'スポーツ',
-                        books: '本',
-                        addToCart: 'カートに追加',
-                        buyNow: '今すぐ購入'
-                    },
-                    zh: {
-                        siteTitle: 'EVAI DEEP',
-                        siteSubtitle: '优质电商平台',
-                        searchPlaceholder: '搜索商品...',
-                        home: '首页',
-                        products: '商品',
-                        premium: '优选',
-                        vintage: '复古',
-                        cart: '购物车',
-                        allProducts: '全部商品',
-                        electronics: '电子产品',
-                        fashion: '时尚',
-                        home: '家居',
-                        sports: '运动',
-                        books: '图书',
-                        addToCart: '加入购物车',
-                        buyNow: '立即购买'
                     }
                 };
 
@@ -1621,10 +1982,88 @@
             init() {
                 this.loadProducts();
                 this.setupEventListeners();
-                this.renderProducts();
+                this.showPage('home');
                 this.updateCartCount();
                 this.applyTheme();
                 this.loadUserProfile();
+                this.setupBackToTop();
+                this.checkCookieConsent();
+            }
+
+            checkCookieConsent() {
+                const consent = localStorage.getItem('cookieConsent');
+                if (consent) {
+                    document.getElementById('cookieConsent').style.display = 'none';
+                    this.loadCookiePreferences(JSON.parse(consent));
+                }
+            }
+
+            loadCookiePreferences(preferences) {
+                // Apply cookie preferences
+                if (preferences.analytics) {
+                    // Initialize analytics
+                    console.log('Analytics cookies enabled');
+                }
+                if (preferences.marketing) {
+                    // Initialize marketing
+                    console.log('Marketing cookies enabled');
+                }
+                if (preferences.functional) {
+                    // Initialize functional cookies
+                    console.log('Functional cookies enabled');
+                }
+            }
+
+            toggleCookieOptions() {
+                const options = document.getElementById('cookieOptions');
+                const customizeBtn = document.getElementById('customizeBtn');
+                
+                if (this.cookieOptionsExpanded) {
+                    options.style.display = 'none';
+                    customizeBtn.textContent = 'Customize';
+                } else {
+                    options.style.display = 'flex';
+                    options.style.flexDirection = 'column';
+                    customizeBtn.textContent = 'Hide Options';
+                }
+                
+                this.cookieOptionsExpanded = !this.cookieOptionsExpanded;
+            }
+
+            acceptCookies() {
+                const preferences = {
+                    essential: true,
+                    analytics: document.getElementById('analyticsCookies').checked,
+                    marketing: document.getElementById('marketingCookies').checked,
+                    functional: document.getElementById('functionalCookies').checked,
+                    timestamp: new Date().toISOString()
+                };
+
+                localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+                document.getElementById('cookieConsent').style.display = 'none';
+                this.loadCookiePreferences(preferences);
+                this.showToast('Cookie preferences saved! 🍪', 'success');
+            }
+
+            rejectCookies() {
+                const preferences = {
+                    essential: true,
+                    analytics: false,
+                    marketing: false,
+                    functional: false,
+                    timestamp: new Date().toISOString(),
+                    rejected: true
+                };
+
+                localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+                document.getElementById('cookieConsent').style.display = 'none';
+                
+                // Uncheck all optional cookies
+                document.getElementById('analyticsCookies').checked = false;
+                document.getElementById('marketingCookies').checked = false;
+                document.getElementById('functionalCookies').checked = false;
+                
+                this.showToast('Cookies rejected. Only essential cookies will be used.', 'info');
             }
 
             loadProducts() {
@@ -1666,17 +2105,10 @@
             }
 
             loadUserProfile() {
-                // Load saved profile from localStorage
                 const savedProfile = localStorage.getItem('evai_user_profile');
                 if (savedProfile) {
                     const profile = JSON.parse(savedProfile);
-                    document.getElementById('fullName').value = profile.fullName || '';
-                    document.getElementById('email').value = profile.email || '';
-                    document.getElementById('phone').value = profile.phone || '';
-                    document.getElementById('country').value = profile.country || 'RW';
-                    document.getElementById('city').value = profile.city || '';
-                    document.getElementById('address').value = profile.address || '';
-                    document.getElementById('preferredPayment').value = profile.preferredPayment || 'card';
+                    // Will be used when user form is shown
                 }
             }
 
@@ -1711,7 +2143,7 @@
                         document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
                         btn.classList.add('active');
                         this.currentCategory = btn.dataset.category;
-                        this.renderProducts();
+                        this.showPage('products');
                     });
                 });
 
@@ -1756,19 +2188,12 @@
                 // Navigation
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.addEventListener('click', (e) => {
-                        if (!link.classList.contains('cart-link')) {
-                            e.preventDefault();
-                            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                            link.classList.add('active');
-                            this.handleNavigation(link.dataset.page);
+                        e.preventDefault();
+                        const page = link.dataset.page;
+                        if (page) {
+                            this.showPage(page);
                         }
                     });
-                });
-
-                // User profile form
-                document.getElementById('userForm').addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.saveUserProfile();
                 });
 
                 // Newsletter form
@@ -1782,67 +2207,644 @@
                 });
             }
 
-            saveUserProfile() {
-                const profile = {
-                    fullName: document.getElementById('fullName').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    country: document.getElementById('country').value,
-                    city: document.getElementById('city').value,
-                    address: document.getElementById('address').value,
-                    preferredPayment: document.getElementById('preferredPayment').value
-                };
-
-                localStorage.setItem('evai_user_profile', JSON.stringify(profile));
-                this.showToast('Profile saved successfully! ✅', 'success');
-            }
-
-            setLanguage(lang) {
-                this.currentLanguage = lang;
-                document.getElementById('currentLang').textContent = 
-                    this.translations[lang].siteTitle.split(' ')[0] + ' ' + 
-                    (lang === 'en' ? '🇺🇸' : lang === 'es' ? '🇪🇸' : lang === 'fr' ? '🇫🇷' : lang === 'de' ? '🇩🇪' : lang === 'ja' ? '🇯🇵' : '🇨🇳');
+            showPage(page) {
+                this.currentPage = page;
                 
-                // Update UI text
-                document.getElementById('siteTitle').textContent = this.translations[lang].siteTitle;
-                document.getElementById('siteSubtitle').textContent = this.translations[lang].siteSubtitle;
-                document.getElementById('searchInput').placeholder = this.translations[lang].searchPlaceholder;
-                
-                // Update category buttons
-                const categoryBtns = document.querySelectorAll('.category-btn');
-                const categories = ['all', 'electronics', 'fashion', 'home', 'sports', 'books', 'premium', 'old'];
-                categoryBtns.forEach((btn, index) => {
-                    if (index < 8) {
-                        btn.innerHTML = `${this.getCategoryIcon(categories[index])} ${this.translations[lang][categories[index]] || this.translations[lang].allProducts}`;
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    if (link.dataset.page === page) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
                     }
                 });
+
+                const mainContent = document.getElementById('mainContent');
                 
-                this.renderProducts();
-                this.showToast(`Language changed to ${lang.toUpperCase()}`, 'success');
+                switch(page) {
+                    case 'home':
+                        mainContent.innerHTML = this.renderHomePage();
+                        break;
+                    case 'products':
+                        mainContent.innerHTML = this.renderProductsPage();
+                        this.renderProducts();
+                        break;
+                    case 'premium':
+                        this.currentCategory = 'premium';
+                        mainContent.innerHTML = this.renderProductsPage();
+                        this.renderProducts();
+                        break;
+                    case 'old':
+                        this.currentCategory = 'old';
+                        mainContent.innerHTML = this.renderProductsPage();
+                        this.renderProducts();
+                        break;
+                    case 'about':
+                        mainContent.innerHTML = this.renderAboutPage();
+                        break;
+                    case 'contact':
+                        mainContent.innerHTML = this.renderContactPage();
+                        break;
+                    case 'faqs':
+                        mainContent.innerHTML = this.renderFAQsPage();
+                        this.setupFAQs();
+                        break;
+                    case 'shipping':
+                        mainContent.innerHTML = this.renderShippingPage();
+                        break;
+                    case 'returns':
+                        mainContent.innerHTML = this.renderReturnsPage();
+                        break;
+                    case 'terms':
+                        mainContent.innerHTML = this.renderTermsPage();
+                        break;
+                    case 'privacy':
+                        mainContent.innerHTML = this.renderPrivacyPage();
+                        break;
+                }
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
-            getCategoryIcon(category) {
-                const icons = {
-                    all: '🔍',
-                    electronics: '📱',
-                    fashion: '👔',
-                    home: '🏠',
-                    sports: '⚽',
-                    books: '📚',
-                    premium: '⭐',
-                    old: '📦'
-                };
-                return icons[category] || '📦';
+            renderHomePage() {
+                return `
+                    <div class="main-grid">
+                        <div class="product-grid" id="productGrid"></div>
+                        <div class="user-sidebar">
+                            <div class="user-header">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-title">
+                                    <h3>User Details</h3>
+                                    <p>Complete your profile</p>
+                                </div>
+                            </div>
+
+                            <form class="user-form" id="userForm">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="fullName" placeholder="Enter your full name (e.g., evariste bpf)" value="evariste bpf">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" id="email" placeholder="example@gmail.com" value="bpf@example.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" id="phone" placeholder="+250 785 786 547" value="+250 785 786 547">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select id="country">
+                                            <option value="US">United States</option>
+                                            <option value="UK">United Kingdom</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="RW" selected>Rwanda</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" id="city" placeholder="e.g., Kigali" value="Kigali">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Delivery Address</label>
+                                    <textarea id="address" placeholder="Street number, building name, apartment (e.g., KG 123 St, Kigali)">KG 123 St, Kigali</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Preferred Payment</label>
+                                    <select id="preferredPayment">
+                                        <option value="card">Credit Card</option>
+                                        <option value="paypal">PayPal</option>
+                                        <option value="mobile">Mobile Money</option>
+                                        <option value="cash">Cash on Delivery</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="save-profile-btn" id="saveProfileBtn">
+                                    <i class="fas fa-save"></i> Save Profile
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                `;
             }
 
-            applyTheme() {
-                document.documentElement.setAttribute('data-theme', this.currentTheme);
+            renderProductsPage() {
+                return `
+                    <div class="main-grid">
+                        <div class="product-grid" id="productGrid"></div>
+                        <div class="user-sidebar">
+                            <div class="user-header">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-title">
+                                    <h3>User Details</h3>
+                                    <p>Complete your profile</p>
+                                </div>
+                            </div>
+
+                            <form class="user-form" id="userForm">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="fullName" placeholder="Enter your full name (e.g., John Doe)" value="John Doe">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" id="email" placeholder="example@gmail.com" value="john@example.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" id="phone" placeholder="+250 785 786 547" value="+250 785 786 547">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <select id="country">
+                                            <option value="US">United States</option>
+                                            <option value="UK">United Kingdom</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="RW" selected>Rwanda</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" id="city" placeholder="e.g., Kigali" value="Kigali">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Delivery Address</label>
+                                    <textarea id="address" placeholder="Street number, building name, apartment (e.g., KG 123 St, Kigali)">KG 123 St, Kigali</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Preferred Payment</label>
+                                    <select id="preferredPayment">
+                                        <option value="card">Credit Card</option>
+                                        <option value="paypal">PayPal</option>
+                                        <option value="mobile">Mobile Money</option>
+                                        <option value="cash">Cash on Delivery</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="save-profile-btn" id="saveProfileBtn">
+                                    <i class="fas fa-save"></i> Save Profile
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderAboutPage() {
+                return `
+                    <div class="page-content">
+                        <div class="page-header">
+                            <h2>About EVAI DEEP</h2>
+                            <p>Your trusted partner in premium e-commerce</p>
+                        </div>
+                        
+                        <div class="page-section">
+                            <h3>Our Story</h3>
+                            <p>Founded in 2024, EVAI DEEP has grown to become one of the most trusted names in online shopping. We started with a simple mission: to provide high-quality products at competitive prices while offering exceptional customer service.</p>
+                            <p>Today, we serve customers across the globe, offering everything from electronics to fashion, home goods to books. Our commitment to quality and customer satisfaction remains as strong as ever.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Our Mission</h3>
+                            <p>To revolutionize the online shopping experience by combining cutting-edge technology with personalized service. We believe that shopping should be enjoyable, secure, and convenient.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Our Values</h3>
+                            <ul>
+                                <li><strong>Quality:</strong> We never compromise on quality</li>
+                                <li><strong>Integrity:</strong> We do business with honesty and transparency</li>
+                                <li><strong>Innovation:</strong> We constantly improve our platform</li>
+                                <li><strong>Customer First:</strong> Your satisfaction is our priority</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderContactPage() {
+                return `
+                    <div class="page-content">
+                        <div class="page-header">
+                            <h2>Contact Us</h2>
+                            <p>We're here to help! Reach out to us anytime.</p>
+                        </div>
+                        
+                        <div class="page-section">
+                            <h3>Get in Touch</h3>
+                            <div class="policy-card">
+                                <h4><i class="fas fa-map-marker-alt"></i> Visit Us</h4>
+                                <p>KG 123 St, Kigali, Rwanda</p>
+                            </div>
+
+                            <div class="policy-card">
+                                <h4><i class="fas fa-phone"></i> Call Us</h4>
+                                <p>+250 785 786 547</p>
+                                <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                            </div>
+
+                            <div class="policy-card">
+                                <h4><i class="fas fa-envelope"></i> Email Us</h4>
+                                <p>info@evaideep.com</p>
+                                <p>support@evaideep.com</p>
+                            </div>
+
+                            <div class="policy-card">
+                                <h4><i class="fas fa-clock"></i> Business Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderFAQsPage() {
+                return `
+                    <div class="page-content">
+                        <div class="page-header">
+                            <h2>Frequently Asked Questions</h2>
+                            <p>Find answers to common questions about our services</p>
+                        </div>
+                        
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="app.toggleFAQ(this)">
+                                    <span>How do I place an order?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Placing an order is easy! Simply browse our products, add items to your cart, and proceed to checkout. You'll need to provide your shipping details and payment information. Once your order is confirmed, you'll receive an email with the order details.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="app.toggleFAQ(this)">
+                                    <span>What payment methods do you accept?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>We accept various payment methods including:</p>
+                                    <ul>
+                                        <li>Credit/Debit Cards (Visa, MasterCard, American Express)</li>
+                                        <li>PayPal</li>
+                                        <li>Mobile Money</li>
+                                        <li>Cryptocurrency (Bitcoin, Ethereum)</li>
+                                        <li>Cash on Delivery (select locations)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="app.toggleFAQ(this)">
+                                    <span>How long does shipping take?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Shipping times vary depending on your location:</p>
+                                    <ul>
+                                        <li><strong>Local (Rwanda):</strong> 1-3 business days</li>
+                                        <li><strong>East Africa:</strong> 3-5 business days</li>
+                                        <li><strong>International:</strong> 7-14 business days</li>
+                                    </ul>
+                                    <p>Express shipping options are available at checkout.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="app.toggleFAQ(this)">
+                                    <span>What is your return policy?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>We offer a 30-day return policy on most items. Products must be unused and in original packaging. Some restrictions apply to electronics and personalized items. Visit our Returns & Refunds page for detailed information.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="app.toggleFAQ(this)">
+                                    <span>How can I track my order?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Once your order ships, you'll receive a tracking number via email. You can use this number to track your package on our website or the courier's website. You can also log into your account to view order status.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <div class="faq-question" onclick="app.toggleFAQ(this)">
+                                    <span>Do you ship internationally?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Yes, we ship to most countries worldwide! Shipping costs and delivery times vary by location. You can see the shipping options and costs at checkout before completing your purchase.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderShippingPage() {
+                return `
+                    <div class="page-content">
+                        <div class="page-header">
+                            <h2>Shipping Policy</h2>
+                            <p>Information about our shipping methods and delivery times</p>
+                        </div>
+                        
+                        <div class="page-section">
+                            <h3>Shipping Methods</h3>
+                            <table class="policy-table">
+                                <thead>
+                                    <tr>
+                                        <th>Method</th>
+                                        <th>Delivery Time</th>
+                                        <th>Cost</th>
+                                        <th>Tracking</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Standard Shipping</td>
+                                        <td>5-7 business days</td>
+                                        <td>$5.99 or FREE over $50</td>
+                                        <td>✓ Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Express Shipping</td>
+                                        <td>2-3 business days</td>
+                                        <td>$12.99</td>
+                                        <td>✓ Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Next Day Delivery</td>
+                                        <td>1 business day</td>
+                                        <td>$19.99</td>
+                                        <td>✓ Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>International Shipping</td>
+                                        <td>7-14 business days</td>
+                                        <td>Calculated at checkout</td>
+                                        <td>✓ Yes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Shipping Information</h3>
+                            <div class="policy-card">
+                                <h4>Processing Time</h4>
+                                <p>Orders are processed within 1-2 business days. You'll receive a confirmation email once your order ships.</p>
+                            </div>
+
+                            <div class="policy-card">
+                                <h4>Free Shipping</h4>
+                                <p>Free standard shipping is available on orders over $50 within Rwanda. International orders may qualify for free shipping on orders over $100.</p>
+                            </div>
+
+                            <div class="policy-card">
+                                <h4>Tracking Your Order</h4>
+                                <p>Once your order ships, you'll receive a tracking number via email. You can also track your order by logging into your account.</p>
+                            </div>
+
+                            <div class="policy-card">
+                                <h4>Shipping Restrictions</h4>
+                                <p>Some items may have shipping restrictions due to size, weight, or local regulations. These will be noted on the product page.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderReturnsPage() {
+                return `
+                    <div class="page-content">
+                        <div class="page-header">
+                            <h2>Returns & Refunds</h2>
+                            <p>Our commitment to your satisfaction</p>
+                        </div>
+                        
+                        <div class="page-section">
+                            <h3>Return Policy</h3>
+                            <p>We want you to be completely satisfied with your purchase. If you're not happy with your order, we're here to help.</p>
+                            
+                            <div class="policy-card">
+                                <h4>30-Day Return Window</h4>
+                                <p>You have 30 days from the date of delivery to return most items for a full refund or exchange.</p>
+                            </div>
+
+                            <div class="policy-card">
+                                <h4>Return Conditions</h4>
+                                <p>To be eligible for a return, items must be:</p>
+                                <ul>
+                                    <li>Unused and in original condition</li>
+                                    <li>In original packaging</li>
+                                    <li>Accompanied by proof of purchase</li>
+                                    <li>Not damaged by the customer</li>
+                                </ul>
+                            </div>
+
+                            <div class="policy-card">
+                                <h4>Non-Returnable Items</h4>
+                                <p>The following items cannot be returned:</p>
+                                <ul>
+                                    <li>Personalized or custom items</li>
+                                    <li>Perishable goods</li>
+                                    <li>Gift cards</li>
+                                    <li>Downloadable software</li>
+                                    <li>Intimate apparel</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Refund Process</h3>
+                            <ol>
+                                <li><strong>Initiate Return:</strong> Contact our support team or log into your account to start a return</li>
+                                <li><strong>Package Item:</strong> Securely pack the item with all original packaging</li>
+                                <li><strong>Ship Return:</strong> Send the item to our returns center (return shipping label may be provided)</li>
+                                <li><strong>Inspection:</strong> We'll inspect the returned item within 2-3 business days</li>
+                                <li><strong>Refund:</strong> Approved refunds are processed to your original payment method within 5-7 business days</li>
+                            </ol>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderTermsPage() {
+                return `
+                    <div class="page-content">
+                        <div class="page-header">
+                            <h2>Terms & Conditions</h2>
+                            <p>Please read these terms carefully before using our services</p>
+                        </div>
+                        
+                        <div class="page-section">
+                            <h3>1. Acceptance of Terms</h3>
+                            <p>By accessing and using EVAI DEEP, you accept and agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>2. Account Registration</h3>
+                            <p>To access certain features, you may need to register for an account. You are responsible for maintaining the confidentiality of your account information and for all activities under your account.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>3. Product Information</h3>
+                            <p>We strive to provide accurate product descriptions and pricing. However, we do not warrant that product descriptions or other content is accurate, complete, or error-free.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>4. Pricing and Payment</h3>
+                            <p>All prices are in USD unless otherwise stated. We accept various payment methods as indicated at checkout. Prices are subject to change without notice.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>5. Order Acceptance</h3>
+                            <p>We reserve the right to refuse or cancel any order for any reason, including product availability, errors in pricing, or suspected fraud.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>6. Intellectual Property</h3>
+                            <p>All content on this site, including logos, images, and text, is the property of EVAI DEEP and is protected by copyright laws.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>7. Limitation of Liability</h3>
+                            <p>EVAI DEEP shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or services.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>8. Governing Law</h3>
+                            <p>These terms shall be governed by the laws of Rwanda without regard to its conflict of law provisions.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>9. Changes to Terms</h3>
+                            <p>We reserve the right to modify these terms at any time. Continued use of the site after changes constitutes acceptance of the new terms.</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderPrivacyPage() {
+                return `
+                    <div class="page-content">
+                        <div class="page-header">
+                            <h2>Privacy Policy</h2>
+                            <p>How we protect and handle your personal information</p>
+                        </div>
+                        
+                        <div class="page-section">
+                            <h3>Information We Collect</h3>
+                            <p>We collect information you provide directly to us, such as when you create an account, make a purchase, or contact customer support. This may include:</p>
+                            <ul>
+                                <li>Name and contact information</li>
+                                <li>Payment information</li>
+                                <li>Shipping address</li>
+                                <li>Purchase history</li>
+                                <li>Communications with us</li>
+                            </ul>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>How We Use Your Information</h3>
+                            <p>We use the information we collect to:</p>
+                            <ul>
+                                <li>Process your orders and payments</li>
+                                <li>Communicate with you about your orders</li>
+                                <li>Improve our products and services</li>
+                                <li>Send promotional offers (with your consent)</li>
+                                <li>Prevent fraud and ensure security</li>
+                            </ul>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Information Sharing</h3>
+                            <p>We do not sell your personal information. We may share your information with:</p>
+                            <ul>
+                                <li>Payment processors to complete transactions</li>
+                                <li>Shipping partners to deliver orders</li>
+                                <li>Service providers who assist our operations</li>
+                                <li>Law enforcement when required by law</li>
+                            </ul>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Data Security</h3>
+                            <p>We implement appropriate technical and organizational measures to protect your personal information. All payment information is encrypted using SSL technology.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Your Rights</h3>
+                            <p>You have the right to:</p>
+                            <ul>
+                                <li>Access your personal information</li>
+                                <li>Correct inaccurate data</li>
+                                <li>Request deletion of your data</li>
+                                <li>Opt out of marketing communications</li>
+                            </ul>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Cookies</h3>
+                            <p>We use cookies to enhance your browsing experience. You can control cookies through your browser settings.</p>
+                        </div>
+
+                        <div class="page-section">
+                            <h3>Contact Us</h3>
+                            <p>If you have questions about this Privacy Policy, please contact us at privacy@evaideep.com or call +250 785 786 547.</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            toggleFAQ(element) {
+                const answer = element.nextElementSibling;
+                element.classList.toggle('active');
+                answer.classList.toggle('active');
+                
+                // Close other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== element && q.classList.contains('active')) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('active');
+                    }
+                });
+            }
+
+            setupFAQs() {
+                // FAQ toggle functionality is handled by the onclick in the HTML
             }
 
             renderProducts() {
                 const grid = document.getElementById('productGrid');
-                const filtered = this.filterProducts();
+                if (!grid) return;
                 
+                const filtered = this.filterProducts();
                 grid.innerHTML = '';
                 
                 filtered.forEach(product => {
@@ -1869,7 +2871,7 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">${this.translations[this.currentLanguage][product.category] || product.category}</div>
+                        <div class="product-category">${product.category}</div>
                         <div class="product-title">${product.name}</div>
                         <div class="product-rating">
                             <div class="stars">${this.getStars(product.rating)}</div>
@@ -1891,12 +2893,11 @@
                                     💬 ${product.comments}
                                 </span>
                             </div>
-                            <button class="buy-now" data-id="${product.id}">${this.translations[this.currentLanguage].buyNow}</button>
+                            <button class="buy-now" data-id="${product.id}">Buy Now</button>
                         </div>
                     </div>
                 `;
 
-                // Add event listeners
                 card.querySelector('.like-btn').addEventListener('click', (e) => {
                     e.stopPropagation();
                     this.toggleLike(product.id);
@@ -1915,15 +2916,6 @@
                 card.querySelector('.buy-now').addEventListener('click', (e) => {
                     e.stopPropagation();
                     this.addToCart(product);
-                });
-
-                card.querySelectorAll('.stat').forEach(stat => {
-                    stat.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        const type = stat.dataset.stat;
-                        if (type === 'likes') this.toggleLike(product.id);
-                        else if (type === 'shares') this.shareProduct(product);
-                    });
                 });
 
                 return card;
@@ -1960,11 +2952,14 @@
                     p.category.toLowerCase().includes(term)
                 );
 
-                document.getElementById('productGrid').innerHTML = '';
-                filtered.forEach(product => {
-                    const card = this.createProductCard(product);
-                    document.getElementById('productGrid').appendChild(card);
-                });
+                const grid = document.getElementById('productGrid');
+                if (grid) {
+                    grid.innerHTML = '';
+                    filtered.forEach(product => {
+                        const card = this.createProductCard(product);
+                        grid.appendChild(card);
+                    });
+                }
 
                 this.showToast(`Found ${filtered.length} products`, 'success');
             }
@@ -2058,7 +3053,6 @@
                         this.showToast('Shared successfully!', 'success');
                     });
                 } else {
-                    // Fallback
                     prompt('Copy this link to share:', window.location.href);
                 }
             }
@@ -2074,7 +3068,6 @@
                     return;
                 }
 
-                // Simulate payment processing
                 this.showToast('Processing payment...', 'info');
                 
                 setTimeout(() => {
@@ -2087,31 +3080,26 @@
                 }, 2000);
             }
 
-            handleNavigation(page) {
-                switch(page) {
-                    case 'home':
-                        this.currentCategory = 'all';
-                        break;
-                    case 'products':
-                        this.currentCategory = 'all';
-                        break;
-                    case 'premium':
-                        this.currentCategory = 'premium';
-                        document.querySelectorAll('.category-btn').forEach(btn => {
-                            btn.classList.remove('active');
-                            if (btn.dataset.category === 'premium') btn.classList.add('active');
-                        });
-                        break;
-                    case 'old':
-                        this.currentCategory = 'old';
-                        document.querySelectorAll('.category-btn').forEach(btn => {
-                            btn.classList.remove('active');
-                            if (btn.dataset.category === 'old') btn.classList.add('active');
-                        });
-                        break;
-                }
-                
-                this.renderProducts();
+            setLanguage(lang) {
+                this.currentLanguage = lang;
+                document.getElementById('currentLang').textContent = 
+                    '🌐 ' + (lang === 'en' ? 'English' : lang === 'es' ? 'Español' : lang === 'fr' ? 'Français' : lang === 'de' ? 'Deutsch' : lang === 'ja' ? '日本語' : '中文');
+                this.showToast(`Language changed to ${lang.toUpperCase()}`, 'success');
+            }
+
+            applyTheme() {
+                document.documentElement.setAttribute('data-theme', this.currentTheme);
+            }
+
+            setupBackToTop() {
+                window.addEventListener('scroll', () => {
+                    const btn = document.getElementById('backToTop');
+                    if (window.scrollY > 300) {
+                        btn.classList.add('visible');
+                    } else {
+                        btn.classList.remove('visible');
+                    }
+                });
             }
 
             showToast(message, type = 'info') {
@@ -2166,6 +3154,7 @@
 
         // Initialize the application
         const app = new EVAIDeep();
+        window.app = app; // Make app globally accessible for onclick handlers
     </script>
 </body>
 </html>
