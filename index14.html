@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTEVA | Operational Efficiency Solutions</title>
+    <style>
+        /* ===================== RESET & VARIABLES ===================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-light: #888888;
+            --accent-primary: #007bff;
+            --accent-secondary: #0056b3;
+            --accent-glow: rgba(0, 123, 255, 0.5);
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --chat-bg: #f0f2f5;
+            --message-bot: #e9ecef;
+            --message-user: #007bff;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            --gradient-hteva: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            --gold-glow: radial-gradient(circle, rgba(255,215,0,0.8) 0%, rgba(255,165,0,0.4) 50%, transparent 70%);
+            --cookie-bg: #ffffff;
+            --cookie-text: #333333;
+            --cookie-border: #e0e0e0;
+        }
+
+        .dark {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --bg-card: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-light: #888888;
+            --accent-primary: #FFD700;
+            --accent-secondary: #FFA500;
+            --accent-glow: rgba(255, 215, 0, 0.5);
+            --border-color: #404040;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.3);
+            --chat-bg: #2d2d2d;
+            --message-bot: #404040;
+            --message-user: #FFD700;
+            --cookie-bg: #2d2d2d;
+            --cookie-text: #ffffff;
+            --cookie-border: #404040;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: var(--transition);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ===================== GOLD LIGHTING ANIMATION ===================== */
+        .gold-lighting {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .gold-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--gold-glow);
+            animation: goldPulse 4s ease-out infinite;
+            box-shadow: 0 0 100px 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .gold-ring:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .gold-ring:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .gold-ring:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        .gold-ring:nth-child(4) {
+            animation-delay: 3s;
+        }
+
+        @keyframes goldPulse {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            100% {
+                width: 200vmax;
+                height: 200vmax;
+                opacity: 0;
+            }
+        }
+
+        .light-ray {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%);
+            filter: blur(50px);
+            animation: floatLight 10s infinite ease-in-out;
+            border-radius: 50%;
+        }
+
+        .light-ray:nth-child(5) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .light-ray:nth-child(6) {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 2.5s;
+        }
+
+        .light-ray:nth-child(7) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .light-ray:nth-child(8) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 7.5s;
+        }
+
+        .evariste-name {
+            position: fixed;
+            font-size: 12vw;
+            font-weight: bold;
+            color: transparent;
+            -webkit-text-stroke: 2px #FFD700;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: -1;
+            white-space: nowrap;
+            text-transform: uppercase;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .evariste-name.left {
+            top: 50%;
+            left: -100%;
+            transform: translateY(-50%);
+            animation: slideLeft 30s infinite linear, glowPulse 3s ease-in-out infinite;
+        }
+
+        .evariste-name.right {
+            top: 50%;
+            right: -100%;
+            transform: translateY(-50%);
+            animation: slideRight 30s infinite linear, glowPulse 3s ease-in-out infinite;
+        }
+
+        .evariste-name.top {
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: slideTop 30s infinite linear, glowPulse 3s ease-in-out infinite;
+        }
+
+        .evariste-name.bottom {
+            bottom: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: slideBottom 30s infinite linear, glowPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.05; text-shadow: 0 0 20px #FFD700; }
+            50% { opacity: 0.15; text-shadow: 0 0 40px #FFA500; }
+        }
+
+        @keyframes slideLeft {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes slideRight {
+            0% { right: -100%; }
+            100% { right: 100%; }
+        }
+
+        @keyframes slideTop {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        @keyframes slideBottom {
+            0% { bottom: -100%; }
+            100% { bottom: 100%; }
+        }
+
+        @keyframes floatLight {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translate(50px, 50px) scale(1.2);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(100px, 0) scale(1);
+                opacity: 0.3;
+            }
+            75% {
+                transform: translate(50px, -50px) scale(0.8);
+                opacity: 0.2;
+            }
+        }
+
+        /* ===================== BLOCK NAVBAR ===================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--bg-secondary);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #FFD700;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: var(--gradient-hteva);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            animation: logoGlow 2s ease-in-out infinite;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            display: block;
+            -webkit-text-fill-color: var(--text-secondary);
+            animation: none;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { filter: drop-shadow(0 0 5px #FFD700); }
+            50% { filter: drop-shadow(0 0 20px #FFA500); }
+        }
+
+        /* Block-style navigation button */
+        .nav-block-btn {
+            background: var(--gradient-hteva);
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            border: 1px solid #FFD700;
+        }
+
+        .nav-block-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px #FFD700;
+        }
+
+        .nav-block-btn span {
+            font-size: 1.3rem;
+        }
+
+        /* Block-style menu */
+        .nav-menu-block {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid #FFD700;
+            border-bottom: 2px solid #FFD700;
+            display: none;
+            flex-direction: column;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-lg);
+            animation: slideDown 0.5s ease;
+        }
+
+        .nav-menu-block.active {
+            display: flex;
+        }
+
+        .nav-menu-block a {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .nav-menu-block a:hover {
+            background: var(--gradient-hteva);
+            color: #333;
+            border-left: 4px solid #FFD700;
+            padding-left: 2.5rem;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        #languageSwitcher {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        #languageSwitcher:hover {
+            border-color: #FFA500;
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px #FFD700;
+        }
+
+        #themeToggle {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            background: var(--gradient-hteva);
+            color: #333;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid #FFD700;
+        }
+
+        #themeToggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px #FFD700;
+        }
+
+        /* ===================== HERO SECTION ===================== */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 8rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-title .hteva {
+            background: var(--gradient-hteva);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 4rem;
+            display: block;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px #FFD700); }
+            50% { filter: drop-shadow(0 0 30px #FFA500); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: var(--gradient-hteva);
+            color: #333;
+            border: 1px solid #FFD700;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px #FFD700;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #FFD700;
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gradient-hteva);
+            color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px #FFD700;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #FFD700;
+            animation: float 6s ease-in-out infinite, imageGlow 3s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            border: 2px solid #FFD700;
+        }
+
+        @keyframes imageGlow {
+            0%, 100% { box-shadow: 0 0 30px #FFD700; }
+            50% { box-shadow: 0 0 60px #FFA500; }
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%);
+            filter: blur(50px);
+            animation: rotate 20s linear infinite;
+        }
+
+        /* ===================== VIDEO SECTION ===================== */
+        .video-section {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: var(--gradient-hteva);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 30px #FFD700;
+            border: 2px solid #FFD700;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===================== SERVICES SECTION ===================== */
+        .services {
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--gradient-hteva);
+            opacity: 0;
+            transition: var(--transition);
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px #FFD700;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===================== STATS SECTION ===================== */
+        .stats {
+            padding: 4rem 2rem;
+            background: var(--gradient-hteva);
+            color: #333;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid #FFD700;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+        }
+
+        /* ===================== TEAM SECTION ===================== */
+        .team {
+            padding: 4rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid #FFD700;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px #FFD700;
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 20px #FFD700;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        /* ===================== CONTACT SECTION ===================== */
+        .contact {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #FFA500;
+            box-shadow: 0 0 15px #FFD700;
+        }
+
+        .contact-form button {
+            padding: 1rem;
+            background: var(--gradient-hteva);
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: 1px solid #FFD700;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px #FFD700;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #FFD700;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            background: var(--gradient-hteva);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-info p {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* ===================== FOOTER ===================== */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 2px solid #FFD700;
+            padding: 4rem 2rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            background: var(--gradient-hteva);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-section p {
+            color: var(--text-secondary);
+            margin: 0.5rem 0;
+        }
+
+        .footer-section.links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section.links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0.3rem 0;
+            transition: var(--transition);
+        }
+
+        .footer-section.links a:hover {
+            color: #FFD700;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-hteva);
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid #FFD700;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 0 20px #FFD700;
+        }
+
+        .contact-details {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255,215,0,0.1);
+            border-radius: 5px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .contact-details p {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #FFD700;
+            color: var(--text-light);
+        }
+
+        /* ===================== COOKIE POPUP ===================== */
+        .cookie-popup {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            max-width: 400px;
+            background: var(--cookie-bg);
+            color: var(--cookie-text);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            z-index: 1001;
+            border: 2px solid #FFD700;
+            animation: slideInUp 0.5s ease;
+        }
+
+        .cookie-popup.hidden {
+            display: none;
+        }
+
+        .cookie-popup h3 {
+            margin-bottom: 0.5rem;
+            background: var(--gradient-hteva);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cookie-popup p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .cookie-btn {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .cookie-btn.accept {
+            background: var(--gradient-hteva);
+            color: #333;
+            border: 1px solid #FFD700;
+        }
+
+        .cookie-btn.accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px #FFD700;
+        }
+
+        .cookie-btn.decline {
+            background: transparent;
+            border: 1px solid #FFD700;
+            color: var(--text-primary);
+        }
+
+        .cookie-btn.decline:hover {
+            background: var(--bg-secondary);
+            box-shadow: 0 0 10px #FFD700;
+        }
+
+        /* ===================== ANIMATIONS ===================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===================== RESPONSIVE DESIGN ===================== */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-controls {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                align-items: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-title .hteva {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .cookie-popup {
+                bottom: 1rem;
+                left: 1rem;
+                right: 1rem;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-title .hteva {
+                font-size: 2.5rem;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+            }
+
+            .cookie-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================= GOLD LIGHTING ANIMATION ================= -->
+    <div class="gold-lighting">
+        <div class="gold-ring"></div>
+        <div class="gold-ring"></div>
+        <div class="gold-ring"></div>
+        <div class="gold-ring"></div>
+        <div class="light-ray"></div>
+        <div class="light-ray"></div>
+        <div class="light-ray"></div>
+        <div class="light-ray"></div>
+    </div>
+
+    <!-- ================= EVARISTE NAME ANIMATIONS ================= -->
+    <div class="evariste-name left">EVARISTE</div>
+    <div class="evariste-name right">EVARISTE</div>
+    <div class="evariste-name top">EVARISTE</div>
+    <div class="evariste-name bottom">EVARISTE</div>
+
+    <!-- ================= BLOCK NAVBAR ================= -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                HTEVA
+                <span>Operational Efficiency</span>
+            </div>
+            
+            <!-- Block-style navigation button -->
+            <button class="nav-block-btn" id="navToggleBtn">
+                <span>☰</span>
+                <span class="menu-text">Menu</span>
+            </button>
+            
+            <div class="nav-controls">
+                <select id="languageSwitcher">
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="rw">🇷🇼 RW</option>
+                </select>
+                <button id="themeToggle">🌙</button>
+            </div>
+        </div>
+        
+        <!-- Block-style menu -->
+        <div class="nav-menu-block" id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#video">Video</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hteva">HTEVA</span>
+                <span class="hero-subtitle">Operational Efficiency Solutions</span>
+            </h1>
+            <p class="hero-description">
+                Transforming businesses through innovative operational strategies, 
+                cutting-edge technology, and data-driven solutions. We optimize your 
+                processes for maximum efficiency and growth.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="getStarted">Get Started</button>
+                <button class="btn btn-secondary" id="learnMore">Learn More</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23FFA500'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grad)'/%3E%3Ctext x='50' y='55' font-size='18' text-anchor='middle' fill='%23333' font-family='Arial'%3EHTEVA%3C/text%3E%3C/svg%3E" alt="HTEVA Hero Image">
+        </div>
+    </section>
+
+    <!-- ================= VIDEO SECTION ================= -->
+    <section class="video-section" id="video">
+        <h2 class="section-title">See HTEVA in Action</h2>
+        <div class="video-container">
+            <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23FFD700'/%3E%3Ctext x='8' y='5' font-size='1' text-anchor='middle' fill='%23333' font-family='Arial'%3EOperational Efficiency Video%3C/text%3E%3C/svg%3E">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- ================= SERVICES SECTION ================= -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Process Optimization</h3>
+                <p>Streamline your operations with our proven methodologies and cutting-edge tools.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>AI Integration</h3>
+                <p>Leverage artificial intelligence to automate and enhance your business processes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Data Analytics</h3>
+                <p>Transform your data into actionable insights for better decision-making.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Energy Efficiency</h3>
+                <p>Reduce costs and environmental impact with our energy optimization solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= STATS SECTION ================= -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Expert Team</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TEAM SECTION ================= -->
+    <section class="team" id="team">
+        <h2 class="section-title">Our Leadership Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FFD700'/%3E%3Ctext x='50' y='55' font-size='40' text-anchor='middle' fill='%23333' font-family='Arial'%3EE%3C/text%3E%3C/svg%3E" alt="Evariste">
+                </div>
+                <h3 class="member-name">Evariste</h3>
+                <p class="member-role">Founder & CEO</p>
+                <p>Visionary leader with 15+ years in operational efficiency</p>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FFA500'/%3E%3Ctext x='50' y='55' font-size='40' text-anchor='middle' fill='%23333' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E" alt="Claudine">
+                </div>
+                <h3 class="member-name">Claudine</h3>
+                <p class="member-role">CTO</p>
+                <p>Technology innovator specializing in AI integration</p>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF8C00'/%3E%3Ctext x='50' y='55' font-size='40' text-anchor='middle' fill='%23333' font-family='Arial'%3EM%3C/text%3E%3C/svg%3E" alt="Kaburo">
+                </div>
+                <h3 class="member-name">Kaburo</h3>
+                <p class="member-role">COO</p>
+                <p>Operations expert with global experience</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number">
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>📍 123 Efficiency Street, Kigali, Rwanda</p>
+                <p>📞 +250 785786547</p>
+                <p>📧 info@hteva.rw</p>
+                <p>⏰ Mon-Fri: 8:00 AM - 6:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HTEVA</h3>
+                <p>Operational Efficiency Solutions</p>
+                <p>Transforming businesses through innovation and efficiency since 2020.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#video">Video</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+                <a href="./index0.html">back</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="https://youtube.com" target="_blank" title="YouTube">📺</a>
+                    <a href="https://facebook.com" target="_blank" title="Facebook">📘</a>
+                    <a href="https://linkedin.com" target="_blank" title="LinkedIn">🔗</a>
+                    <a href="https://twitter.com" target="_blank" title="Twitter">🐦</a>
+                    <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
+                </div>
+                <div class="contact-details">
+                    <p><strong>📞 +250 785786547</strong></p>
+                    <p><strong>📧 bapfekureraevariste@gmail.com</strong></p>
+                </div>
+                <p>Subscribe to our newsletter</p>
+                <input type="email" placeholder="Your email" style="padding: 0.5rem; border-radius: 5px; border: 1px solid #FFD700; background: var(--bg-primary); color: var(--text-primary); width: 100%;">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 HTEVA. All Rights Reserved. | Designed by Evariste</p>
+        </div>
+    </footer>
+
+    <!-- ================= COOKIE CONSENT POPUP ================= -->
+    <div class="cookie-popup" id="cookiePopup">
+        <h3>🍪 Cookie Consent</h3>
+        <p>We use cookies to enhance your experience on HTEVA. By continuing to browse, you agree to our use of cookies.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn decline" id="declineCookies">Decline</button>
+            <button class="cookie-btn accept" id="acceptCookies">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            /* ===================== BLOCK NAVIGATION TOGGLE ===================== */
+            const navToggleBtn = document.getElementById("navToggleBtn");
+            const navMenu = document.getElementById("navMenu");
+
+            if (navToggleBtn) {
+                navToggleBtn.addEventListener("click", () => {
+                    navMenu.classList.toggle("active");
+                    
+                    // Update button text
+                    const menuText = navToggleBtn.querySelector(".menu-text");
+                    if (navMenu.classList.contains("active")) {
+                        menuText.textContent = "Close";
+                    } else {
+                        menuText.textContent = "Menu";
+                    }
+                });
+            }
+
+            // Close menu when clicking on a link
+            document.querySelectorAll(".nav-menu-block a").forEach(link => {
+                link.addEventListener("click", () => {
+                    navMenu.classList.remove("active");
+                    const menuText = navToggleBtn.querySelector(".menu-text");
+                    menuText.textContent = "Menu";
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", (e) => {
+                if (navToggleBtn && navMenu && !navToggleBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove("active");
+                    const menuText = navToggleBtn.querySelector(".menu-text");
+                    if (menuText) menuText.textContent = "Menu";
+                }
+            });
+
+            /* ===================== THEME SYSTEM ===================== */
+            const themeToggle = document.getElementById("themeToggle");
+
+            function loadTheme() {
+                const savedTheme = localStorage.getItem("theme");
+                if (savedTheme === "dark") {
+                    document.body.classList.add("dark");
+                    themeToggle.textContent = "☀️";
+                }
+            }
+
+            themeToggle.addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+                if (document.body.classList.contains("dark")) {
+                    localStorage.setItem("theme", "dark");
+                    themeToggle.textContent = "☀️";
+                } else {
+                    localStorage.setItem("theme", "light");
+                    themeToggle.textContent = "🌙";
+                }
+            });
+
+            loadTheme();
+
+            /* ===================== LANGUAGE SYSTEM ===================== */
+            const translations = {
+                en: {
+                    home: "Home",
+                    services: "Services",
+                    video: "Video",
+                    team: "Team",
+                    contact: "Contact",
+                    heroTitle: "Operational Efficiency Solutions",
+                    heroDesc: "Transforming businesses through innovative operational strategies, cutting-edge technology, and data-driven solutions. We optimize your processes for maximum efficiency and growth.",
+                    getStarted: "Get Started",
+                    learnMore: "Learn More",
+                    ourServices: "Our Services",
+                    service1: "Process Optimization",
+                    service1Desc: "Streamline your operations with our proven methodologies and cutting-edge tools.",
+                    service2: "AI Integration",
+                    service2Desc: "Leverage artificial intelligence to automate and enhance your business processes.",
+                    service3: "Data Analytics",
+                    service3Desc: "Transform your data into actionable insights for better decision-making.",
+                    service4: "Energy Efficiency",
+                    service4Desc: "Reduce costs and environmental impact with our energy optimization solutions.",
+                    stats1: "Projects Completed",
+                    stats2: "Client Satisfaction",
+                    stats3: "Expert Team",
+                    stats4: "Support Available",
+                    leadership: "Our Leadership Team",
+                    founder: "Founder & CEO",
+                    cto: "CTO",
+                    coo: "COO",
+                    founderDesc: "Visionary leader with 15+ years in operational efficiency",
+                    ctoDesc: "Technology innovator specializing in AI integration",
+                    cooDesc: "Operations expert with global experience",
+                    getInTouch: "Get In Touch",
+                    fullName: "Full Name",
+                    email: "Email Address",
+                    phone: "Phone Number",
+                    message: "Your Message",
+                    send: "Send Message",
+                    contactInfo: "Contact Information",
+                    address: "123 Efficiency Street, Kigali, Rwanda",
+                    hours: "Mon-Fri: 8:00 AM - 6:00 PM",
+                    quickLinks: "Quick Links",
+                    connect: "Connect With Us",
+                    subscribe: "Subscribe to our newsletter",
+                    copyright: "© 2025 HTEVA. All Rights Reserved. | Designed by Evariste",
+                    cookieTitle: "🍪 Cookie Consent",
+                    cookieText: "We use cookies to enhance your experience on HTEVA. By continuing to browse, you agree to our use of cookies.",
+                    accept: "Accept",
+                    decline: "Decline",
+                    menu: "Menu",
+                    close: "Close"
+                },
+                fr: {
+                    home: "Accueil",
+                    services: "Services",
+                    video: "Vidéo",
+                    team: "Équipe",
+                    contact: "Contact",
+                    heroTitle: "Solutions d'Efficacité Opérationnelle",
+                    heroDesc: "Transformer les entreprises grâce à des stratégies opérationnelles innovantes, une technologie de pointe et des solutions basées sur les données. Nous optimisons vos processus pour une efficacité et une croissance maximales.",
+                    getStarted: "Commencer",
+                    learnMore: "En Savoir Plus",
+                    ourServices: "Nos Services",
+                    service1: "Optimisation des Processus",
+                    service1Desc: "Rationalisez vos opérations avec nos méthodologies éprouvées et nos outils de pointe.",
+                    service2: "Intégration IA",
+                    service2Desc: "Tirez parti de l'intelligence artificielle pour automatiser et améliorer vos processus métier.",
+                    service3: "Analyse de Données",
+                    service3Desc: "Transformez vos données en informations exploitables pour une meilleure prise de décision.",
+                    service4: "Efficacité Énergétique",
+                    service4Desc: "Réduisez les coûts et l'impact environnemental avec nos solutions d'optimisation énergétique.",
+                    stats1: "Projets Réalisés",
+                    stats2: "Satisfaction Client",
+                    stats3: "Équipe d'Experts",
+                    stats4: "Support Disponible",
+                    leadership: "Notre Équipe de Direction",
+                    founder: "Fondateur & PDG",
+                    cto: "CTO",
+                    coo: "COO",
+                    founderDesc: "Leader visionnaire avec plus de 15 ans d'expérience en efficacité opérationnelle",
+                    ctoDesc: "Innovateur technologique spécialisé dans l'intégration de l'IA",
+                    cooDesc: "Expert en opérations avec une expérience mondiale",
+                    getInTouch: "Contactez-Nous",
+                    fullName: "Nom Complet",
+                    email: "Adresse Email",
+                    phone: "Numéro de Téléphone",
+                    message: "Votre Message",
+                    send: "Envoyer",
+                    contactInfo: "Informations de Contact",
+                    address: "123 Rue de l'Efficacité, Kigali, Rwanda",
+                    hours: "Lun-Ven: 8h00 - 18h00",
+                    quickLinks: "Liens Rapides",
+                    connect: "Connectez-vous",
+                    subscribe: "Abonnez-vous à notre newsletter",
+                    copyright: "© 2025 HTEVA. Tous droits réservés. | Conçu par Evariste",
+                    cookieTitle: "🍪 Consentement aux Cookies",
+                    cookieText: "Nous utilisons des cookies pour améliorer votre expérience sur HTEVA. En continuant à naviguer, vous acceptez notre utilisation des cookies.",
+                    accept: "Accepter",
+                    decline: "Refuser",
+                    menu: "Menu",
+                    close: "Fermer"
+                },
+                es: {
+                    home: "Inicio",
+                    services: "Servicios",
+                    video: "Vídeo",
+                    team: "Equipo",
+                    contact: "Contacto",
+                    heroTitle: "Soluciones de Eficiencia Operacional",
+                    heroDesc: "Transformando empresas a través de estrategias operativas innovadoras, tecnología de vanguardia y soluciones basadas en datos. Optimizamos sus procesos para máxima eficiencia y crecimiento.",
+                    getStarted: "Comenzar",
+                    learnMore: "Saber Más",
+                    ourServices: "Nuestros Servicios",
+                    service1: "Optimización de Procesos",
+                    service1Desc: "Optimice sus operaciones con nuestras metodologías probadas y herramientas de vanguardia.",
+                    service2: "Integración de IA",
+                    service2Desc: "Aproveche la inteligencia artificial para automatizar y mejorar sus procesos comerciales.",
+                    service3: "Análisis de Datos",
+                    service3Desc: "Transforme sus datos en información procesable para una mejor toma de decisiones.",
+                    service4: "Eficiencia Energética",
+                    service4Desc: "Reduzca costos e impacto ambiental con nuestras soluciones de optimización energética.",
+                    stats1: "Proyectos Completados",
+                    stats2: "Satisfacción del Cliente",
+                    stats3: "Equipo Experto",
+                    stats4: "Soporte Disponible",
+                    leadership: "Nuestro Equipo de Liderazgo",
+                    founder: "Fundador & CEO",
+                    cto: "CTO",
+                    coo: "COO",
+                    founderDesc: "Líder visionario con más de 15 años en eficiencia operacional",
+                    ctoDesc: "Innovador tecnológico especializado en integración de IA",
+                    cooDesc: "Experto en operaciones con experiencia global",
+                    getInTouch: "Póngase en Contacto",
+                    fullName: "Nombre Completo",
+                    email: "Correo Electrónico",
+                    phone: "Número de Teléfono",
+                    message: "Su Mensaje",
+                    send: "Enviar Mensaje",
+                    contactInfo: "Información de Contacto",
+                    address: "123 Calle de la Eficiencia, Kigali, Ruanda",
+                    hours: "Lun-Vie: 8:00 AM - 6:00 PM",
+                    quickLinks: "Enlaces Rápidos",
+                    connect: "Conéctese",
+                    subscribe: "Suscríbase a nuestro boletín",
+                    copyright: "© 2025 HTEVA. Todos los derechos reservados. | Diseñado por Evariste",
+                    cookieTitle: "🍪 Consentimiento de Cookies",
+                    cookieText: "Utilizamos cookies para mejorar su experiencia en HTEVA. Al continuar navegando, acepta nuestro uso de cookies.",
+                    accept: "Aceptar",
+                    decline: "Rechazar",
+                    menu: "Menú",
+                    close: "Cerrar"
+                },
+                de: {
+                    home: "Startseite",
+                    services: "Dienstleistungen",
+                    video: "Video",
+                    team: "Team",
+                    contact: "Kontakt",
+                    heroTitle: "Lösungen für Betriebseffizienz",
+                    heroDesc: "Transformieren Sie Unternehmen durch innovative Betriebsstrategien, modernste Technologie und datengesteuerte Lösungen. Wir optimieren Ihre Prozesse für maximale Effizienz und Wachstum.",
+                    getStarted: "Loslegen",
+                    learnMore: "Mehr Erfahren",
+                    ourServices: "Unsere Dienstleistungen",
+                    service1: "Prozessoptimierung",
+                    service1Desc: "Optimieren Sie Ihre Abläufe mit unseren bewährten Methoden und modernsten Werkzeugen.",
+                    service2: "KI-Integration",
+                    service2Desc: "Nutzen Sie künstliche Intelligenz zur Automatisierung und Verbesserung Ihrer Geschäftsprozesse.",
+                    service3: "Datenanalyse",
+                    service3Desc: "Verwandeln Sie Ihre Daten in umsetzbare Erkenntnisse für bessere Entscheidungen.",
+                    service4: "Energieeffizienz",
+                    service4Desc: "Reduzieren Sie Kosten und Umweltauswirkungen mit unseren Energieoptimierungslösungen.",
+                    stats1: "Abgeschlossene Projekte",
+                    stats2: "Kundenzufriedenheit",
+                    stats3: "Expertenteam",
+                    stats4: "Support Verfügbar",
+                    leadership: "Unser Führungsteam",
+                    founder: "Gründer & CEO",
+                    cto: "CTO",
+                    coo: "COO",
+                    founderDesc: "Visionärer Führer mit über 15 Jahren Erfahrung in Betriebseffizienz",
+                    ctoDesc: "Technologieinnovator spezialisiert auf KI-Integration",
+                    cooDesc: "Betriebsexperte mit globaler Erfahrung",
+                    getInTouch: "Kontakt Aufnehmen",
+                    fullName: "Vollständiger Name",
+                    email: "E-Mail-Adresse",
+                    phone: "Telefonnummer",
+                    message: "Ihre Nachricht",
+                    send: "Nachricht Senden",
+                    contactInfo: "Kontaktdetails",
+                    address: "123 Effizienzstraße, Kigali, Ruanda",
+                    hours: "Mo-Fr: 8:00 - 18:00 Uhr",
+                    quickLinks: "Schnelllinks",
+                    connect: "Verbinden Sie Sich",
+                    subscribe: "Abonnieren Sie unseren Newsletter",
+                    copyright: "© 2025 HTEVA. Alle Rechte vorbehalten. | Entworfen von Evariste",
+                    cookieTitle: "🍪 Cookie-Zustimmung",
+                    cookieText: "Wir verwenden Cookies, um Ihr Erlebnis auf HTEVA zu verbessern. Wenn Sie weiter surfen, stimmen Sie der Verwendung von Cookies zu.",
+                    accept: "Akzeptieren",
+                    decline: "Ablehnen",
+                    menu: "Menü",
+                    close: "Schließen"
+                },
+                rw: {
+                    home: "Ahabanza",
+                    services: "Serivisi",
+                    video: "Amatapipe",
+                    team: "Itsinda",
+                    contact: "Twandikire",
+                    heroTitle: "Ibikorwa by'Iterambere",
+                    heroDesc: "Guhindura ubucuruzi binyuze mubikorwa bishya, ikoranabuhanga rigezweho, nibisubizo bishingiye kubushake. Twongerera umusaruro imikorere yawe kugirango ugere kumurimo mwinshi no gukura.",
+                    getStarted: "Tangira",
+                    learnMore: "Menya Byinshi",
+                    ourServices: "Serivisi Zacu",
+                    service1: "Kunoza Imikorere",
+                    service1Desc: "Worohereza imikorere yawe ukoresheje uburyo bwacu bwiza nibikoresho bigezweho.",
+                    service2: "Gushyiraho AI",
+                    service2Desc: "Koresha ubwenge bwiza kugirango wikoreze kandi unoze imikorere yawe.",
+                    service3: "Isesengura ry'Amakuru",
+                    service3Desc: "Hindura amakuru yawe mubitekerezo byingirakamaro kugirango ufate ibyemezo byiza.",
+                    service4: "Gukoresha Ingufu neza",
+                    service4Desc: "Gabanya ibiciro n'ingaruka ku bidukikije hamwe nibisubizo byawe byo gukoresha ingufu neza.",
+                    stats1: "Imishinga Yujujwe",
+                    stats2: "Kwishima k'Abakiriya",
+                    stats3: "Itsinda Ry'Abahanga",
+                    stats4: "Ubufasha Buhari",
+                    leadership: "Itsinda Ry'Ubuyobozi",
+                    founder: "Uwatanze & CEO",
+                    cto: "CTO",
+                    coo: "COO",
+                    founderDesc: "Umuyobozi w'ubushishozi ufite uburambe bw'imyaka 15 mu mikorere myiza",
+                    ctoDesc: "Umuhanga mu ikoranabuhanga witabara gushyiraho AI",
+                    cooDesc: "Umunyaburambe mu bikorwa ufite uburambe ku isi",
+                    getInTouch: "Twandikire",
+                    fullName: "Amazina Yose",
+                    email: "Aderesi ya Imeli",
+                    phone: "Nimero ya Telefoni",
+                    message: "Ubutumwa Bwawe",
+                    send: "Ohereza Ubutumwa",
+                    contactInfo: "Aho Duhura",
+                    address: "123 Umuhanda w'Ikoranabuhanga, Kigali, Rwanda",
+                    hours: "Kuwa Mbere - Kuwa Gatanu: 8:00 - 18:00",
+                    quickLinks: "Ibyihutirwa",
+                    connect: "Twikurikirane",
+                    subscribe: "Iyandikishe kuri newsletter yacu",
+                    copyright: "© 2025 HTEVA. Uburenganzira bwose bwakusanyirijwe. | Byakozwe na Evariste",
+                    cookieTitle: "🍪 Kwemera Inyanjé",
+                    cookieText: "Dukoresha inyanjé kugirango twongere ubunararibonye bwawe kuri HTEVA. Ukomeza gusura, wemera gukoresha inyanjé.",
+                    accept: "Kwemera",
+                    decline: "Kwanga",
+                    menu: "Ibikubiyemo",
+                    close: "Funga"
+                }
+            };
+
+            const langSwitcher = document.getElementById("languageSwitcher");
+
+            function setLanguage(lang) {
+                const t = translations[lang];
+                
+                // Navigation
+                const navLinks = document.querySelectorAll(".nav-menu-block a");
+                if (navLinks.length >= 5) {
+                    navLinks[0].textContent = t.home;
+                    navLinks[1].textContent = t.services;
+                    navLinks[2].textContent = t.video;
+                    navLinks[3].textContent = t.team;
+                    navLinks[4].textContent = t.contact;
+                }
+                
+                // Update menu button text
+                const menuText = document.querySelector(".menu-text");
+                if (menuText) {
+                    if (navMenu.classList.contains("active")) {
+                        menuText.textContent = t.close;
+                    } else {
+                        menuText.textContent = t.menu;
+                    }
+                }
+                
+                // Hero section
+                document.querySelector(".hero-title .hteva").textContent = "HTEVA";
+                document.querySelector(".hero-subtitle").textContent = t.heroTitle;
+                document.querySelector(".hero-description").textContent = t.heroDesc;
+                document.querySelector("#getStarted").textContent = t.getStarted;
+                document.querySelector("#learnMore").textContent = t.learnMore;
+                
+                // Services section
+                document.querySelector(".services .section-title").textContent = t.ourServices;
+                const serviceCards = document.querySelectorAll(".service-card");
+                if (serviceCards.length >= 4) {
+                    serviceCards[0].querySelector("h3").textContent = t.service1;
+                    serviceCards[0].querySelector("p").textContent = t.service1Desc;
+                    serviceCards[1].querySelector("h3").textContent = t.service2;
+                    serviceCards[1].querySelector("p").textContent = t.service2Desc;
+                    serviceCards[2].querySelector("h3").textContent = t.service3;
+                    serviceCards[2].querySelector("p").textContent = t.service3Desc;
+                    serviceCards[3].querySelector("h3").textContent = t.service4;
+                    serviceCards[3].querySelector("p").textContent = t.service4Desc;
+                }
+                
+                // Stats section
+                const statLabels = document.querySelectorAll(".stat-label");
+                if (statLabels.length >= 4) {
+                    statLabels[0].textContent = t.stats1;
+                    statLabels[1].textContent = t.stats2;
+                    statLabels[2].textContent = t.stats3;
+                    statLabels[3].textContent = t.stats4;
+                }
+                
+                // Team section
+                document.querySelector(".team .section-title").textContent = t.leadership;
+                const teamMembers = document.querySelectorAll(".team-member");
+                if (teamMembers.length >= 3) {
+                    teamMembers[0].querySelector(".member-role").textContent = t.founder;
+                    teamMembers[0].querySelector("p:last-child").textContent = t.founderDesc;
+                    teamMembers[1].querySelector(".member-role").textContent = t.cto;
+                    teamMembers[1].querySelector("p:last-child").textContent = t.ctoDesc;
+                    teamMembers[2].querySelector(".member-role").textContent = t.coo;
+                    teamMembers[2].querySelector("p:last-child").textContent = t.cooDesc;
+                }
+                
+                // Contact section
+                document.querySelector(".contact .section-title").textContent = t.getInTouch;
+                const contactForm = document.querySelector("#contactForm");
+                if (contactForm) {
+                    const inputs = contactForm.querySelectorAll("input, textarea");
+                    if (inputs.length >= 4) {
+                        inputs[0].placeholder = t.fullName;
+                        inputs[1].placeholder = t.email;
+                        inputs[2].placeholder = t.phone;
+                        inputs[3].placeholder = t.message;
+                    }
+                    contactForm.querySelector("button").textContent = t.send;
+                }
+                
+                const contactInfo = document.querySelector(".contact-info");
+                if (contactInfo) {
+                    contactInfo.querySelector("h3").textContent = t.contactInfo;
+                    const infoP = contactInfo.querySelectorAll("p");
+                    if (infoP.length >= 4) {
+                        infoP[0].innerHTML = `📍 ${t.address}`;
+                        infoP[3].innerHTML = `⏰ ${t.hours}`;
+                    }
+                }
+                
+                // Footer
+                const footerSections = document.querySelectorAll(".footer-section");
+                if (footerSections.length >= 3) {
+                    footerSections[0].querySelector("h3").textContent = "HTEVA";
+                    footerSections[1].querySelector("h3").textContent = t.quickLinks;
+                    footerSections[2].querySelector("h3").textContent = t.connect;
+                    footerSections[2].querySelector("p:last-of-type").textContent = t.subscribe;
+                }
+                
+                const footerLinks = document.querySelectorAll(".footer-section.links a");
+                if (footerLinks.length >= 5) {
+                    footerLinks[0].textContent = t.home;
+                    footerLinks[1].textContent = t.services;
+                    footerLinks[2].textContent = t.video;
+                    footerLinks[3].textContent = t.team;
+                    footerLinks[4].textContent = t.contact;
+                }
+                
+                document.querySelector(".footer-bottom p").innerHTML = t.copyright;
+                
+                // Cookie popup
+                const cookieTitle = document.querySelector(".cookie-popup h3");
+                const cookieText = document.querySelector(".cookie-popup p");
+                const acceptBtn = document.querySelector("#acceptCookies");
+                const declineBtn = document.querySelector("#declineCookies");
+                
+                if (cookieTitle) cookieTitle.textContent = t.cookieTitle;
+                if (cookieText) cookieText.textContent = t.cookieText;
+                if (acceptBtn) acceptBtn.textContent = t.accept;
+                if (declineBtn) declineBtn.textContent = t.decline;
+                
+                localStorage.setItem("language", lang);
+            }
+
+            langSwitcher.addEventListener("change", (e) => {
+                setLanguage(e.target.value);
+            });
+
+            function loadLanguage() {
+                const savedLang = localStorage.getItem("language") || "en";
+                langSwitcher.value = savedLang;
+                setLanguage(savedLang);
+            }
+
+            loadLanguage();
+
+            /* ===================== COOKIE CONSENT ===================== */
+            const cookiePopup = document.getElementById("cookiePopup");
+            const acceptBtn = document.getElementById("acceptCookies");
+            const declineBtn = document.getElementById("declineCookies");
+
+            const cookieConsent = localStorage.getItem("cookieConsent");
+
+            if (!cookieConsent) {
+                setTimeout(() => {
+                    cookiePopup.classList.remove("hidden");
+                }, 2000);
+            } else {
+                cookiePopup.classList.add("hidden");
+            }
+
+            acceptBtn.addEventListener("click", () => {
+                localStorage.setItem("cookieConsent", "accepted");
+                cookiePopup.classList.add("hidden");
+            });
+
+            declineBtn.addEventListener("click", () => {
+                localStorage.setItem("cookieConsent", "declined");
+                cookiePopup.classList.add("hidden");
+            });
+
+            /* ===================== FORM HANDLING ===================== */
+            const contactForm = document.getElementById("contactForm");
+            if (contactForm) {
+                contactForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    alert("Message sent successfully! We'll get back to you soon.");
+                    contactForm.reset();
+                });
+            }
+
+            /* ===================== SCROLL ANIMATIONS ===================== */
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            document.querySelectorAll("section, .service-card, .team-member").forEach(element => {
+                element.classList.add("hidden");
+                observer.observe(element);
+            });
+
+            /* ===================== SMOOTH SCROLLING ===================== */
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close menu after clicking link
+                        navMenu.classList.remove("active");
+                        const menuText = navToggleBtn.querySelector(".menu-text");
+                        if (menuText) {
+                            const currentLang = langSwitcher.value;
+                            menuText.textContent = translations[currentLang].menu;
+                        }
+                    }
+                });
+            });
+
+            /* ===================== BUTTON ACTIONS ===================== */
+            document.getElementById("getStarted").addEventListener("click", () => {
+                document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+            });
+
+            document.getElementById("learnMore").addEventListener("click", () => {
+                document.getElementById("services").scrollIntoView({ behavior: "smooth" });
+            });
+        })();
+    </script>
+</body>
+</html>
